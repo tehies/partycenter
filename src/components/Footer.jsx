@@ -267,7 +267,7 @@ const Footer = () => {
           <span className="h3 block-heading EN_trnaslate">Account</span>
           <span className="h3 block-heading ar_translate hide">الحساب</span>
           <span class="navbar-toggler collapse-icons">
-<img src="/download (1).png"/>
+          <img src="assets/images/download (1).png"/>
           </span>
         </div>
         <div
@@ -292,16 +292,16 @@ const Footer = () => {
       {/* Company Section */}
       <div className="bottom-link-list footer-block col-md-4">
       <div
-          className={`footer-title clearfix hidden-lg-up ${activeAccordion === "categories" ? "" : "collapsed"}`}
+          className={`footer-title clearfix hidden-lg-up ${activeAccordion === "company" ? "" : "collapsed"}`}
           data-target="#category-info-container"
           data-toggle="collapse"
-          aria-expanded={activeAccordion === "categories"}
-          onClick={() => toggleAccordion("categories")}
+          aria-expanded={activeAccordion === "company"}
+          onClick={() => toggleAccordion("company")}
         >
           <span className="h3 block-heading EN_trnaslate">Company</span>
           <span className="h3 block-heading ar_translate hide">أعلى الفئات</span>
           <span class="navbar-toggler collapse-icons">
-<img src="/download (1).png"/>
+<img src="assets/images/download (1).png"/>
           </span>
         </div>
         <div
@@ -337,7 +337,7 @@ const Footer = () => {
           <span className="h3 block-heading EN_trnaslate">Top Categories</span>
           <span className="h3 block-heading ar_translate hide">أعلى الفئات</span>
           <span class="navbar-toggler collapse-icons">
-<img src="/download (1).png"/>
+          <img src="assets/images/download (1).png"/>
           </span>
         </div>
         <div
@@ -373,7 +373,7 @@ const Footer = () => {
           <span className="h3 block-heading EN_trnaslate">Customer Care</span>
           <span className="h3 block-heading ar_translate hide">رعاية العميل</span>
           <span class="navbar-toggler collapse-icons">
-<img src="/download (1).png"/>
+          <img src="assets/images/download (1).png"/>
           </span>
         </div>
         <div
