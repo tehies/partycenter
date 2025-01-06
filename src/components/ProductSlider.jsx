@@ -12,7 +12,8 @@ function ProductSlider() {
     useEffect(() => {
         const fetchProducts = async () => {
             try {
-                const response = await axios.get('http://localhost:4000/collectionProduct', {
+                const response = await axios.get('https://partycenter-vtex-backend.onrender.com/collectionProduct', {
+                    // const response = await axios.get('http://localhost:4000/collectionProduct', {
                     params: { collectionId },
                 });
 

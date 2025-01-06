@@ -15,7 +15,8 @@ const ProductPage = () => {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const skuResponse = await axios.get(`http://localhost:4000/sku/${skuId}`);
+                const skuResponse = await axios.get(`https://partycenter-vtex-backend.onrender.com/sku/${skuId}`);
+                // const skuResponse = await axios.get(`http://localhost:4000/sku/${skuId}`);
                 const skuData = skuResponse.data;
                 setSku(skuData);
             } catch (err) {

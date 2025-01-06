@@ -15,7 +15,8 @@ const CollectionNav = ({ id }) => {
         const fetchCollectionProducts = async () => {
             try {
                 // Fetch collection products
-                const response = await axios.get(`http://localhost:4000/collectionProduct?collectionId=${collectionId}`);
+                // const response = await axios.get(`http://localhost:4000/collectionProduct?collectionId=${collectionId}`);
+                const response = await axios.get(`https://partycenter-vtex-backend.onrender.com/collectionProduct?collectionId=${collectionId}`);
                 console.log('API Response:', response);
 
                 if (Array.isArray(response.data.Data)) {
@@ -25,7 +26,8 @@ const CollectionNav = ({ id }) => {
                     const productsWithPrices = await Promise.all(
                         products.map(async (product) => {
                             try {
-                                const priceResponse = await axios.get(`http://localhost:4000/pricing/${product.SkuId}`);
+                                const priceResponse = await axios.get(`https://partycenter-vtex-backend.onrender.com/pricing/${product.SkuId}`);
+                                // const priceResponse = await axios.get(`http://localhost:4000/pricing/${product.SkuId}`);
                                 console.log(`Price for SkuId ${product.SkuId}:`, priceResponse.data.basePrice);
 
                                 return { ...product, Price: priceResponse.data.basePrice || 0 };

@@ -12,12 +12,14 @@ export default function CollectionPage({ id }) {
     useEffect(() => {
         const fetchCollection = async () => {
             try {
-                const productResponse = await axios.get('http://localhost:4000/collectionProduct', {
+                const productResponse = await axios.get('https://partycenter-vtex-backend.onrender.com/collectionProduct', {
+                    // const productResponse = await axios.get('http://localhost:4000/collectionProduct', {
                     params: { collectionId },
                 });
                 setProducts(productResponse.data.Data || []);
 
-                const collectionResponse = await axios.get('http://localhost:4000/collection');
+                const collectionResponse = await axios.get('https://partycenter-vtex-backend.onrender.com/collection');
+                // const collectionResponse = await axios.get('http://localhost:4000/collection');
                 const collection = collectionResponse.data.items.find(
                     (item) => item.id.toString() === collectionId
                 );
