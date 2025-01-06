@@ -4,7 +4,10 @@ import "swiper/css"; // Swiper styles
 import "swiper/css/navigation"; // Optional: Navigation module styles
 import "swiper/css/pagination"; // Optional: Pagination module styles
 import { Autoplay } from "swiper/modules";
-import 'font-awesome/css/font-awesome.min.css'; 
+import { Link } from 'react-router-dom';
+
+
+import 'font-awesome/css/font-awesome.min.css';
 const Header = () => {
   return (
     <div className="header-content">
@@ -245,7 +248,7 @@ const Header = () => {
                                   <img src="assets/header-icons/shopping-cart.png" />
                                   <p>Cart</p>
                                 </span>
-                                
+
                               </span>
                             </div>
                           </div>
@@ -341,34 +344,34 @@ const Header = () => {
                   <div className="mobile_tab_menu dddd ww">
                     <ul>
                       <li>
-                        <a href="">Disney Golden Princess</a>
+                        <Link to="/Disney">Disney Golden Princess</Link>
                       </li>
                       <li>
-                        <a href="">Birthdays</a>
+                        <Link to="/Birthdays">Birthdays</Link>
                       </li>
                       <li>
-                        <a href="">Balloons</a>
+                        <Link to="/Balloons">Balloons</Link>
                       </li>
                       <li>
-                        <a href="">Costumes</a>
+                        <Link to="/Costumes">Costumes</Link>
                       </li>
                       <li>
-                        <a href="">Decorations</a>
+                        <Link to="/Decorations">Decorations</Link>
                       </li>
                       <li>
-                        <a href="">Party Favours</a>
+                        <Link to="/Party_Favours">Party Favours</Link>
                       </li>
                       <li>
-                        <a href="">Theme Parties</a>
+                        <Link to="/Theme_Parties">Theme Parties</Link>
                       </li>
                       <li>
-                        <a href="">Baby Events</a>
+                        <Link to="/Baby_Events">Baby Events</Link>
                       </li>
                       <li>
-                        <a href="">Special Occasions</a>
+                        <Link to="/Special_Occasions">Special Occasions</Link>
                       </li>
                       <li>
-                        <a href="">Holiday Seasons</a>
+                        <Link to="/Holiday_Seasons">Holiday Seasons</Link>
                       </li>
                     </ul>
                   </div>
@@ -392,52 +395,40 @@ const Header = () => {
                   >
                     <ul className="top-menu" id="top-menu">
                       <li className="category">
-                        <a className="dropdown-item" href="">
-                          Disney Golden Princess
-                        </a>
+                        <Link to="/Disney">Disney Golden Princess</Link>
                       </li>
                       <li className="category">
-                        <a className="dropdown-item" href="">
-                          Birthdays
-                        </a>
+                        <Link to="/Birthdays">Birthdays</Link>
                       </li>
                       <li className="category">
-                        <a className="dropdown-item" href="">
-                          Balloons
-                        </a>
+                        <Link to="/Balloons">Balloons</Link>
+
                       </li>
                       <li className="category">
-                        <a className="dropdown-item" href="">
-                          Costumes
-                        </a>
+                        <Link to="/Costumes">Costumes</Link>
+
                       </li>
                       <li className="category">
-                        <a className="dropdown-item" href="">
-                          Decorations
-                        </a>
+                        <Link to="/Decorations">Decorations</Link>
+
                       </li>
                       <li className="category">
-                        <a className="dropdown-item" href="">
-                          Party Favours
-                        </a>
+                        <Link to="/Party_Favours">Party Favours</Link>
+
                       </li>
                       <li className="category">
-                        <a className="dropdown-item" href="">
-                          Theme Parties
-                        </a>
+                        <Link to="/Theme_Parties">Theme Parties</Link>
+
+                      </li>
+                      <li className="category"> <Link to="/Baby_Events">Baby Events</Link></li>
+
+                      <li className="category">
+                        <Link to="/Special_Occasions">Special Occasions</Link>
+
                       </li>
                       <li className="category">
-                        <a href="">Baby Events</a>
-                      </li>
-                      <li className="category">
-                        <a className="dropdown-item" href="">
-                          Special Occasions
-                        </a>
-                      </li>
-                      <li className="category">
-                        <a className="dropdown-item" href="">
-                          Holiday Seasons
-                        </a>
+                        <Link to="/Holiday_Seasons">Holiday Seasons</Link>
+
                       </li>
                     </ul>
                   </div>
