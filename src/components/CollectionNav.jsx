@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom'; // Import Link for routing
+import '../css/CollectionNav.css';
 
 const CollectionNav = ({ id }) => {
     const [collectionProducts, setCollectionProducts] = useState([]);
@@ -93,6 +94,10 @@ const [Prtoductlength,setProductLength]=useState("")
             <h1 className="product-heading">Collection Products</h1>
 
             {/* Sorting Controls */}
+            <div className="srtngprdts">
+            <div className="noprtds">
+            <p>There are {Prtoductlength} products</p>
+            </div>
             <div className="sorting-controls">
                 <label htmlFor="sortOrder">Sort By:</label>
                 <select id="sortOrder" value={sortOrder} onChange={handleFilterChange}>
@@ -104,7 +109,7 @@ const [Prtoductlength,setProductLength]=useState("")
                 </select>
             </div>
             
-            <h2>{Prtoductlength}</h2>
+            </div>
 
             {/* Product Grid */}
             <div className="product-grid">

@@ -162,11 +162,11 @@ const Header = () => {
                     <div className="header-logo-section col-md-3 col-sm-12 col-xs-12 logo_left">
                       <h1 className="h2 header__logo">
                         <a href="/" className="header__logo-image">
-                          <img src="assets/header-icons/Party-centre-Logo-with-arabic_version-GIF_2_1024x1024_cf17503e-c020-413e-852d-5976479c61fd_1024x1024.avif" />
+                          <img src="/Party-centre-Logo-with-arabic_version-GIF_2_1024x1024_cf17503e-c020-413e-852d-5976479c61fd_1024x1024.avif" />
                         </a>
                       </h1>
                       <img
-                        src="assets/header-icons/KSA_Badge_copy.avif"
+                        src="/KSA_Badge_copy.avif"
                         className="badge_image_twenty"
                       />
                     </div>
@@ -201,7 +201,7 @@ const Header = () => {
                             >
                               <span className="search-logo">
                                 {/* <i className="fas fa-search"></i> */}
-                                <img src="assets/header-icons/svgexport-8.png" />
+                                <img src="/svgexport-8.png" />
                               </span>
                             </button>
                           </form>
@@ -231,7 +231,7 @@ const Header = () => {
                           <div className="wishlist-content">
                             <a href="">
                               <span className="head-icon">
-                                <img src="assets/header-icons/icons8-map-marker-32.png" />
+                                <img src="/icons8-map-marker-32.png" />
                                 <p>Store Locations</p>
                               </span>
                             </a>
@@ -245,7 +245,7 @@ const Header = () => {
                             <div className="site-header__cart expand-more">
                               <span className="head-icon cart-logo hidden-lg-down">
                                 <span className="cart-logo hidden-lg-down">
-                                  <img src="assets/header-icons/shopping-cart.png" />
+                                  <img src="/shopping-cart.png" />
                                   <p>Cart</p>
                                 </span>
 

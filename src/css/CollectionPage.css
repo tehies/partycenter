@@ -7,9 +7,112 @@
 .collection-container h2 {
     text-align: center;
     margin-bottom: 20px;
-    font-size: 24px;
-    color: #333;
+    font-size: 28px;
+    color: #000;
+    font-weight: 400;
+    font-family: Poppins;
 }
+
+/* Grid View Styles */
+.product-container.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 16px;
+}
+
+.product-card.grid {
+    /* border: 1px solid #ddd; */
+    padding: 10px;
+    text-align: center;
+}
+
+button.toggle-btn.listbtn {
+    background-image: url(https://partycentre.sa/cdn/shop/t/67/assets/grid-list-sprite.png?v=60939617790673866581698928880);
+    background-color: transparent;
+    background-position: -36px 1px;
+    height: 22px;
+    width: 22px;
+    border: none;
+    transition: all .3s ease 0s;
+    background-repeat: no-repeat;
+}
+button.toggle-btn.gridbtn {
+    background-color: transparent;
+    background-image: url(https://partycentre.sa/cdn/shop/t/67/assets/grid-list-sprite.png?v=60939617790673866581698928880);
+    background-position: 0 -33px;
+    border: none;
+    background-repeat: no-repeat;
+    transition: all .3s ease 0s;
+    padding-right: 3px;
+}
+.srtngprdts {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 15px;
+    background-color: #f5f5f5;
+    margin-bottom: 15px;
+    line-height: 1.25em;
+}
+button.toggle-btn.listbtn:hover {
+    background-position: -36px -33px;
+}
+.product-card a {
+    text-decoration: unset;
+}
+.noprtds {
+    display: flex;
+    vertical-align: middle;
+    align-items: center;
+}
+
+/* List View Styles */
+.product-container.list {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.product-card.list {
+    display: flex;
+    align-items: center;
+    /* border: 1px solid #ddd; */
+    padding: 10px;
+}
+.product-container.list .product-card.list img {
+    width: 22%;
+    height: auto;
+    margin-right: 16px;
+}
+.product-container.list .product-card a {
+    display: flex;
+}
+
+.product-card.list img {
+    width: 100px;
+    height: 100px;
+    margin-right: 16px;
+}
+
+/* View Toggle Buttons */
+.view-toggle-buttons {
+    margin: 16px 0;
+    display: flex;
+    gap: 8px;
+}
+
+.toggle-btn {
+    padding: 8px 16px;
+    border: 1px solid #ddd;
+    background-color: #f9f9f9;
+    cursor: pointer;
+}
+
+.toggle-btn.active {
+    background-color: #007bff;
+    color: #fff;
+    border-color: #007bff;
+}
+
 
 .product-grid {
     display: grid;
@@ -52,9 +155,11 @@
 
 .product-card h3 {
     margin: 10px;
-    font-size: 18px;
+    font-size: 14px;
     text-align: center;
-    color: #555;
+    color: #000;
+    font-family: 'Poppins';
+    font-weight: 400;
 }
 
 .spinner-container {
