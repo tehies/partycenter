@@ -7,18 +7,19 @@ function ProductSlider() {
     const [products, setProducts] = useState([]);
     const [loading, setLoading] = useState(true);
 
-    const collectionId = '142';
+    const collectionId = '150'; // Updated to match the API response collection ID
 
     useEffect(() => {
         const fetchProducts = async () => {
             try {
-                const response = await axios.get('https://partycenter-vtex-backend.onrender.com/collectionProduct', {
-                    // const response = await axios.get('http://localhost:4000/collectionProduct', {
+                // Fetch data from your backend API
+                // const response = await axios.get('http://localhost:4000/collectionProductDetails', {
+                const response = await axios.get('https://partycenter-vtex-backend.onrender.com/collectionProductDetails', {
                     params: { collectionId },
                 });
 
-                if (response.data && Array.isArray(response.data.Data)) {
-                    setProducts(response.data.Data);
+                if (response.data && Array.isArray(response.data.Products)) {
+                    setProducts(response.data.Products);
                 } else {
                     console.warn('Unexpected response format:', response.data);
                 }
@@ -42,7 +43,7 @@ function ProductSlider() {
             <div className="product-grid">
                 {products.map((product) => (
                     <Link
-                        to={`/product/${product.SkuId}`}
+                        to={`/product/${product.SkuId}`}  // Use SkuId for routing
                         key={product.SkuId}
                         className="product-card"
                     >
@@ -52,7 +53,10 @@ function ProductSlider() {
                             className="product-image"
                         />
                         <h3 className="product-name">{product.ProductName || 'Unnamed Product'}</h3>
-                        <p className="product-price">SAR 225.00</p>
+                        <p className="product-price">
+                            {/* You can customize this to show the price if available */}
+                            SAR 225.00
+                        </p>
                     </Link>
                 ))}
             </div>
