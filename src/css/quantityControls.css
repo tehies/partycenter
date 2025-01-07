@@ -1,0 +1,72 @@
+/* General container */
+.main-product-container {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
+  
+  /* Quantity controls container */
+  .quantity-controls {
+    display: flex;
+    align-items: center;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    overflow: hidden;
+    font-family: Arial, sans-serif;
+  }
+  
+  .quantity-controls button {
+    background: none;
+    border: none;
+    width: 40px;
+    height: 40px;
+    font-size: 20px;
+    cursor: pointer;
+    color: #333;
+  }
+  
+  .quantity-controls button:hover {
+    background-color: #f0f0f0;
+  }
+  
+  .quantity-controls .quantity-input {
+    width: 50px;
+    height: 40px;
+    text-align: center;
+    border: none;
+    outline: none;
+    font-size: 16px;
+    font-weight: bold;
+    color: #333;
+  }
+  
+  /* Add to Cart button */
+  .add-to-cart-btn {
+    background-color: #437dc5;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .add-to-cart-btn:hover {
+    background-color: #3569a7;
+  }
+  
+  /* SKU text */
+  .sku {
+    margin: 0;
+    font-size: 14px;
+    color: #666;
+    font-family: Arial, sans-serif;
+  }
+  button.decrease-btn {
+    border-right: 1px solid #ccc;
+}
+button.increase-btn {
+    border-left: 1px solid #ccc;
+}
