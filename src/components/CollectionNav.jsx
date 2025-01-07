@@ -8,7 +8,7 @@ const CollectionNav = ({ id }) => {
     const [error, setError] = useState(null);
     const [filteredProducts, setFilteredProducts] = useState([]);
     const [sortOrder, setSortOrder] = useState(''); // Sort state for low to high, high to low, etc.
-
+const [Prtoductlength,setProductLength]=useState("")
     const collectionId = id; // Dynamically set your collection ID
 
     useEffect(() => {
@@ -18,7 +18,8 @@ const CollectionNav = ({ id }) => {
                 // const response = await axios.get(`http://localhost:4000/collectionProduct?collectionId=${collectionId}`);
                 const response = await axios.get(`https://partycenter-vtex-backend.onrender.com/collectionProduct?collectionId=${collectionId}`);
                 console.log('API Response:', response);
-
+                console.log('API Response:', );
+                setProductLength(response.data.Size)
                 if (Array.isArray(response.data.Data)) {
                     const products = response.data.Data;
 
@@ -102,6 +103,8 @@ const CollectionNav = ({ id }) => {
                     <option value="zToA">Name: Z to A</option>
                 </select>
             </div>
+            
+            <h2>{Prtoductlength}</h2>
 
             {/* Product Grid */}
             <div className="product-grid">

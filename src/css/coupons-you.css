@@ -1,0 +1,67 @@
+.coupons-txt h3 {
+    margin: 0;
+    padding: 0;
+    letter-spacing: 0;
+    color: #000;
+    font-size: 16px;
+    font-weight: 500;
+    text-transform: capitalize;
+    margin-bottom: 6px;
+}
+.coupons-you a.active__offers {
+    color: #4876bb;
+}
+.coupons-txt p {
+    color: #000;
+    margin-bottom: 10px;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 21px;
+    margin-top: 0;
+    /* font-family: poppins; */
+}
+.coupons-you {
+    border: 1px solid #e6e6e6;
+    padding: 10px;
+    margin-bottom: 20px;
+}
+
+.coupon-popup {
+    position: fixed;
+    top: 25%;
+    right: 8%;
+    width: 300px;
+    z-index: 1000;
+    transform: translateX(100%);
+    animation: slideIn 0.5s forwards;
+}
+
+.coupon-popup .popup-content {
+    padding: 20px;
+}
+
+.coupon-popup .popup h3 {
+    margin-top: 0;
+}
+
+.coupon-popup .popup button {
+    margin-top: 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+}
+.popup-content img {
+    height: 300px;
+    width: 380px;
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateX(100%);
+    }
+    to {
+        transform: translateX(0);
+    }
+}

@@ -1,0 +1,36 @@
+.featurelist {
+    margin: 20px 0px;
+}
+  .featurelist ul {
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    width: 100%;
+  }
+  
+  .featurelist li {
+    flex: 1 1 calc(50% - 10px); /* Each item takes 50% of the width */
+    text-align: center;
+    display: flex;
+    align-items: center;
+    column-gap: 5px;
+  }
+  .featurelist li p{
+    font-size: 11px;
+    line-height: 20px;
+    font-weight: 600;
+    color:rgb(119, 119, 119);
+  }
+  
+  .featurelist-images {
+    max-width: 35px !important;
+    width: 100%;
+}
+  
+  .featurelist span {
+    margin-top: 8px;
+    font-size: 14px;
+  }
+  
