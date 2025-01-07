@@ -11,12 +11,8 @@
     "react-dom": "^19.0.0",
     "react-router-dom": "^7.1.1",
     "react-scripts": "^5.0.1",
-<<<<<<< HEAD
-    "swiper": "^11.2.0"
-=======
-    "styled-components": "^6.1.14",
-    "swiper": "^11.1.15"
->>>>>>> aa77748ac2c5054a82a9ae815f80fba11f6a49a5
+    "swiper": "^11.2.0",
+    "styled-components": "^6.1.14"
   },
   "scripts": {
     "start": "react-scripts start",

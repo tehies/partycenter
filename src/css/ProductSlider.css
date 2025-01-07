@@ -52,6 +52,27 @@
 .cart-container li {
     margin-bottom: 5px;
 }
+.prdtbtns .quantity-controls {
+    width: 100%!important;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+.prdtbtns .main-product-container {
+    display: inline-block;
+    text-align: center;
+}
+.prdtbtns .add-to-cart-btn {
+    background-color: #437dc5;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 13px;
+    font-size: 12px;
+    font-weight: 400;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 0;
+}
 
 
 

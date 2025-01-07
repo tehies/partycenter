@@ -4,6 +4,18 @@ import axios from 'axios';
 import '../css/CollectionPage.css';
 
 export default function CollectionPage({ id }) {
+     const [quantity, setQuantity] = useState(1);
+    const handleDecrease = () => {
+        setQuantity(prevQuantity => (prevQuantity > 1 ? prevQuantity - 1 : 1));
+      };
+    
+      const handleIncrease = () => {
+        setQuantity(prevQuantity => prevQuantity + 1);
+      };
+    
+      const handleAddToCart = () => {
+        alert(`Added ${quantity} item(s) to the cart`);
+      };
     const [collectionProducts, setCollectionProducts] = useState([]);
     const { collectionId } = useParams();
     const [products, setProducts] = useState([]);
@@ -112,8 +124,30 @@ export default function CollectionPage({ id }) {
                                             ? `$${(product.Price / 100).toFixed(2)}`
                                             : 'Price not available'}
                                     </p>
+
                                 </div>
                             </Link>
+                            <div className="main-product-container">
+      <div className="quantity-controls">
+        <button className="decrease-btn" onClick={handleDecrease}>
+          -
+        </button>
+        <input
+          type="number"
+          className="quantity-input"
+          value={quantity}
+          min="1"
+          readOnly
+        />
+        <button className="increase-btn" onClick={handleIncrease}>
+          +
+        </button>
+      </div>
+      <button className="add-to-cart-btn" onClick={handleAddToCart}>
+        + ADD TO CART
+      </button>
+      {/* <p className="sku">SKU: 3008599</p> */}
+    </div>
                         </div>
                     ))}
                 </div>

@@ -185,61 +185,7 @@ const Footer = () => {
                   <h2 className="title_block ar_translate hide">اشتراك</h2>
                   <p className="block-newsletter-label EN_trnaslate">Get access on exclusive offers and promotions and get 10% off your first order!</p>
                   <p className="block-newsletter-label ar_translate hide">احصل على العروض الحصرية والعروض الترويجية واحصل على خصم 10% على طلبك الأول!</p>
-                  <form
-      method="post"
-      action="/contact#contact_form"
-      id="contact_form"
-      acceptCharset="UTF-8"
-      className="contact-form"
-      onSubmit={handleSubmit}
-    >
-      <input type="hidden" name="form_type" value="customer" />
-      <input type="hidden" name="utf8" value="✓" />
 
-      <div className="input-group">
-        <input type="hidden" name="contact[tags]" value="newsletter" />
-        <input
-          type="email"
-          name="contact[email]"
-          id="Email"
-          className="input-group__field newsletter__input"
-          value={email}
-          placeholder="Enter Your Email"
-          autoCapitalize="off"
-          onChange={(e) => setEmail(e.target.value)}
-          required
-        />
-        <span className="input-group__btn">
-          <button
-            type="submit"
-            className="btn newsletter__submit"
-            name="commit"
-            id="Subscribe"
-          >
-            <span className="newsletter__submit-text--large hidden-xs-down">
-              SUBSCRIBE
-            </span>
-            <span className="newsletter__submit-text--large hidden-xs-up">
-              GO
-            </span>
-          </button>
-        </span>
-      </div>
-      <div className="email_check_div">
-        <input
-          type="checkbox"
-          id="email_check_box"
-          name="email_check_box"
-          required
-          checked={isChecked}
-          onChange={(e) => setIsChecked(e.target.checked)}
-        />
-        <label htmlFor="email_check_box">
-          Yes, I would like to receive promotional emails from Party Centre.
-          We will never share any of your data and you can unsubscribe anytime.
-        </label>
-      </div>
-    </form>
 
             </div>
 
@@ -267,7 +213,7 @@ const Footer = () => {
           <span className="h3 block-heading EN_trnaslate">Account</span>
           <span className="h3 block-heading ar_translate hide">الحساب</span>
           <span class="navbar-toggler collapse-icons">
-          <img src="assets/images/download (1).png"/>
+          <img src="/assets/images/download (1).png"/>
           </span>
         </div>
         <div
@@ -301,7 +247,7 @@ const Footer = () => {
           <span className="h3 block-heading EN_trnaslate">Company</span>
           <span className="h3 block-heading ar_translate hide">أعلى الفئات</span>
           <span class="navbar-toggler collapse-icons">
-<img src="assets/images/download (1).png"/>
+<img src="/assets/images/download (1).png"/>
           </span>
         </div>
         <div
@@ -337,7 +283,7 @@ const Footer = () => {
           <span className="h3 block-heading EN_trnaslate">Top Categories</span>
           <span className="h3 block-heading ar_translate hide">أعلى الفئات</span>
           <span class="navbar-toggler collapse-icons">
-          <img src="assets/images/download (1).png"/>
+          <img src="/assets/images/download (1).png"/>
           </span>
         </div>
         <div
@@ -373,7 +319,7 @@ const Footer = () => {
           <span className="h3 block-heading EN_trnaslate">Customer Care</span>
           <span className="h3 block-heading ar_translate hide">رعاية العميل</span>
           <span class="navbar-toggler collapse-icons">
-          <img src="assets/images/download (1).png"/>
+          <img src="/assets/images/download (1).png"/>
           </span>
         </div>
         <div

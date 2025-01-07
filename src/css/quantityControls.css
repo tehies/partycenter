@@ -30,9 +30,9 @@
   }
   
   .quantity-controls .quantity-input {
-    width: 50px;
+    width: 40px!important;
     height: 40px;
-    text-align: center;
+    text-align: right;
     border: none;
     outline: none;
     font-size: 16px;
@@ -51,6 +51,7 @@
     font-weight: bold;
     cursor: pointer;
     transition: background-color 0.3s ease;
+    margin-top: 0;
   }
   
   .add-to-cart-btn:hover {
