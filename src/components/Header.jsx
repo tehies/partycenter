@@ -5,7 +5,7 @@ import "swiper/css/navigation"; // Optional: Navigation module styles
 import "swiper/css/pagination"; // Optional: Pagination module styles
 import { Autoplay } from "swiper/modules";
 import { Link } from 'react-router-dom';
-
+import HeaderSearch from './HeaderSearch'
 
 import 'font-awesome/css/font-awesome.min.css';
 const Header = () => {
@@ -172,41 +172,7 @@ const Header = () => {
                     </div>
 
                     <div className="ishiheadercontactblock col-md-8 col-sm-6 col-xs-6 hidden-xs-down">
-                      <div
-                        className="site-header__search col-md-4 hidden-lg-down"
-                        id="_desktop_search"
-                      >
-                        <div className="search-title clearfix collapsed">
-                          <span className="search-toggle"></span>
-                        </div>
-
-                        <div
-                          id="search-container-full"
-                          className="search-info collapse"
-                        >
-                          <form
-                            action="/search"
-                            method="GET"
-                            className="search-form search-header search search--focus"
-                          >
-                            <input
-                              type="text"
-                              name="q"
-                              className="search-input search-header__input search__input"
-                              placeholder="Search for products..."
-                            />
-                            <button
-                              type="submit"
-                              className="search-button search-header__submit search__submit btn--link"
-                            >
-                              <span className="search-logo">
-                                {/* <i className="fas fa-search"></i> */}
-                                <img src="assets/header-icons/svgexport-8.png" />
-                              </span>
-                            </button>
-                          </form>
-                        </div>
-                      </div>
+                      <HeaderSearch />
                     </div>
 
                     <div className="dextop_icons">
