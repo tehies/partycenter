@@ -26,20 +26,18 @@ function ProductSlider() {
 
     const [loading, setLoading] = useState(true);
 
-    const collectionId = '143';
+    const collectionId = '142';
 
     useEffect(() => {
         const fetchProducts = async () => {
             try {
-                const response = await axios.get(
-                    'https://partycenter-vtex-backend.onrender.com/collectionProduct',
-                    {
-                        params: { collectionId },
-                    }
-                );
+                const response = await axios.get('https://partycenter-vtex-backend.onrender.com/collectionProduct', {
+                    // const response = await axios.get('http://localhost:4000/collectionProduct', {
+                    params: { collectionId },
+                });
 
-                if (response.data && Array.isArray(response.data.Data)) {
-                    setProducts(response.data.Data);
+                if (response.data && Array.isArray(response.data.Products)) {
+                    setProducts(response.data.Products);
                 } else {
                     console.warn('Unexpected response format:', response.data);
                 }
@@ -103,24 +101,19 @@ function ProductSlider() {
                 }}
             >
                 {products.map((product) => (
-                    <SwiperSlide key={product.SkuId}>
-                        <div className="product-card">
-                            <Link to={`/product/${product.SkuId}`} className="product-card">
-                                <img
-                                    src={product.SkuImageUrl || 'default-image-url.jpg'}
-                                    alt={product.ProductName || 'Product Image'}
-                                    className="product-image"
-                                />
-                                <h3 className="product-name">
-                                    {product.ProductName || 'Unnamed Product'}
-                                </h3>
-                                <p className="product-price">SAR 225.00</p>
-                            </Link>
-                            <div className="prdtbtns">
-                            <QuantityControls />
-                            </div>
-                        </div>
-                    </SwiperSlide>
+                    <Link
+                        to={`/product/${product.SkuId}`}
+                        key={product.SkuId}
+                        className="product-card"
+                    >
+                        <img
+                            src={product.SkuImageUrl || 'default-image-url.jpg'}
+                            alt={product.ProductName || 'Product Image'}
+                            className="product-image"
+                        />
+                        <h3 className="product-name">{product.ProductName || 'Unnamed Product'}</h3>
+                        <p className="product-price">SAR 225.00</p>
+                    </Link>
                 ))}
             </Swiper>
         </div>

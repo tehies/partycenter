@@ -5,7 +5,7 @@ import "swiper/css/navigation"; // Optional: Navigation module styles
 import "swiper/css/pagination"; // Optional: Pagination module styles
 import { Autoplay } from "swiper/modules";
 import { Link } from 'react-router-dom';
-
+import HeaderSearch from './HeaderSearch'
 
 import 'font-awesome/css/font-awesome.min.css';
 const Header = () => {
@@ -163,7 +163,8 @@ const Header = () => {
                     <div className="header-logo-section col-md-3 col-sm-12 col-xs-12 logo_left">
                       <h1 className="h2 header__logo">
                         <a href="/" className="header__logo-image">
-                          <img alt="" src="/assets/header-icons/Party-centre-Logo-with-arabic_version-GIF_2_1024x1024_cf17503e-c020-413e-852d-5976479c61fd_1024x1024.avif" />
+                  
+                          <img src="/assets/header-icons/Party-centre-Logo-with-arabic_version-GIF_2_1024x1024_cf17503e-c020-413e-852d-5976479c61fd_1024x1024.avif" />
                         </a>
                       </h1>
                       <img alt=""
@@ -202,7 +203,7 @@ const Header = () => {
                             >
                               <span className="search-logo">
                                 {/* <i className="fas fa-search"></i> */}
-                                <img alt="" src="/assets/header-icons/svgexport-8.png" />
+                                <img src="/assets/header-icons/svgexport-8.png" />
                               </span>
                             </button>
                           </form>
