@@ -15,7 +15,7 @@ const HeaderSearch = () => {
 
         if (newQuery.length > 0) {
             try {
-                const response = await fetch(`http://localhost:4000/searchProducts?q=${newQuery}`);
+                const response = await fetch(`https://partycenter-vtex-backend.onrender.com/searchProducts?q=${newQuery}`);
                 if (!response.ok) {
                     throw new Error("Failed to fetch products");
                 }
