@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useRef } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
-import "../css/ProductPage.css"; 
+import "../css/ProductPage.css";
 import QuantityControls from "./QuantityControls";
 import FeatureList from "./FeatureList";
 import CouponPopup from "./CouponPopup";
@@ -126,12 +126,12 @@ const ProductPage = () => {
           </p> */}
           <p className="single_product-price">Price: {displayedPrice}</p>
 
-          
-       {/* CouponPopup */}
-          <CouponPopup/>
+
+          {/* CouponPopup */}
+          <CouponPopup />
 
           {/* FeatureList */}
-            <FeatureList />
+          <FeatureList />
           {/* end FeatureList */}
 
           {/* QuantityControls  */}
@@ -141,7 +141,7 @@ const ProductPage = () => {
         </div>
 
         {/* Pdp_tabs */}
-        <Pdp_tabs/>
+        <Pdp_tabs />
 
       </div>
     </div>

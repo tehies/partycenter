@@ -11,7 +11,7 @@ import Footer from './components/Footer';
 import ProductSlider from './components/ProductSlider';
 import CollectionPage from './components/CollectionPage'; // Component for collection API integration
 import ProductPage from './components/ProductPage'; // Component for Product API integration
-
+import Cart from './components/Cart';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import CollectionNav from './components/CollectionNav';
 
@@ -53,7 +53,7 @@ function App() {
           <Route path="/Special_Occasions" element={<CollectionNav id={149} />} />
           <Route path="/Holiday_Seasons" element={<CollectionNav id={150} />} />
 
-
+          <Route path="/cart/:orderFormId" element={<Cart />} />
           {/* collection routes */}
           <Route path="/collection/:collectionId" element={<CollectionPage />} />
         </Routes>
