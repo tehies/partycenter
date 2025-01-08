@@ -26,7 +26,7 @@ function ProductSlider() {
 
     const [loading, setLoading] = useState(true);
 
-    const collectionId = '142';
+    const collectionId = '143';
 
     useEffect(() => {
         const fetchProducts = async () => {
