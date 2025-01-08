@@ -65,3 +65,38 @@
   font-weight: 400;
   color: black;
 }
+
+@media only screen and ( max-width: 600px ){
+  .tabs-content {
+    display: flex;
+    margin: 0 25px;
+    column-gap: 30px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.tabs-content a {
+  display: block;
+  width: calc(48.333% - 20px);
+  overflow: hidden;
+  text-decoration: none;
+  justify-content: center;
+}
+.tabs-buttons button {
+  margin: 0 5px;
+  padding: 10px 20px;
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  cursor: pointer;
+  border: 1px solid transparent;
+  background: transparent;
+  transition: background 0.3s, color 0.3s;
+  border-radius: 10px;
+}
+.tabs-content h3 {
+  margin-top: 8px;
+  font-size: 12px;
+  font-weight: 400;
+  color: black;
+}
+}
