@@ -35,7 +35,7 @@
     text-align: right;
     border: none;
     outline: none;
-    font-size: 16px;
+    font-size: 12px;
     font-weight: bold;
     color: #333;
   }
@@ -70,4 +70,35 @@
 }
 button.increase-btn {
     border-left: 1px solid #ccc;
+}
+
+
+@media only screen and (max-width:767px){
+  /* .product-card.grid h3{
+    width: 150px;
+  } */
+  .product-card.grid .quantity-controls .quantity-input, .product-card.list .quantity-controls .quantity-input {
+    text-align: center;
+}
+.product-card.grid button.add-to-cart-btn {
+  width: 75%;
+}
+.product-card.list {
+  display: inline-block;
+}
+.product-container.list .product-card a {
+  width: 100%;
+}
+.product-card.list .collection-container .quantity-controls {
+  width: 52%;
+  margin: 0 auto;
+}
+.collection-container .product-container.list button.add-to-cart-btn {
+  width: 100%;
+  margin-top: 10px;
+}
+.product-container.list .main-product-container {
+  display: inline-block;
+  justify-content: space-between;
+}
 }

@@ -1,4 +1,4 @@
-.product-container {
+.product-slider-container {
     font-family: Arial, sans-serif;
     text-align: center;
 }
@@ -60,6 +60,18 @@
 .prdtbtns .main-product-container {
     display: inline-block;
     text-align: center;
+}
+.product-container .swiper .main-product-container {
+    display: inline-block;
+}
+.product-container .swiper .main-product-container button.add-to-cart-btn {
+    font-size: 12px;
+    font-weight: 400;
+}
+.product-container .swiper .main-product-container button.add-to-cart-btn {
+    font-size: 12px;
+    font-weight: 400;
+    margin-top: 5px;
 }
 .prdtbtns .add-to-cart-btn {
     background-color: #437dc5;
@@ -181,6 +193,7 @@
 .product-container {
     padding: 20px;
     text-align: center;
+    
 }
 
 .product-grid {
@@ -220,4 +233,49 @@
     color: #007bff;
     font-size: 1em;
     margin-top: 5px;
+}
+
+
+
+.product-info h3 {
+    width: 200px; /* Set the desired width */
+    white-space: nowrap; /* Prevent wrapping to the next line */
+    overflow: hidden; /* Hide the overflowing text */
+    text-overflow: ellipsis; /* Add ellipsis ("...") for overflow */
+  }
+
+
+  .product-slider-container h3.product-name {
+    width: 200px; 
+    white-space: nowrap; 
+    overflow: hidden; 
+    text-overflow: ellipsis; 
+}
+
+@media only screen and ( max-width: 600px ){
+    .product-slider-container h3.product-name {
+        width: 130px; 
+        white-space: nowrap; 
+        overflow: hidden; 
+        text-overflow: ellipsis; 
+        margin:10px auto;
+    }
+
+    .product-slider-container  .quantity-controls .quantity-input {
+        width: 40px !important;
+        height: 30px;
+        text-align: center;
+        border: none;
+        outline: none;
+        font-size: 16px;
+        font-weight: bold;
+        color: #333;
+    }
+
+    .product-info h3 {
+        width:auto;
+        white-space: normal;
+        overflow: unset;
+        text-overflow: unset;
+    }
 }

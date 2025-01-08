@@ -117,6 +117,8 @@ export default function CollectionPage({ id }) {
                         <div key={product.SkuId} className={`product-card ${viewType}`}>
                             <Link to={`/product/${product.SkuId}`}>
                                 <img src={product.SkuImageUrl} alt={product.ProductName} />
+                                </Link>
+                                <div className="namebtnnn">
                                 <div className="product-info">
                                     <h3>{product.ProductName}</h3>
                                     <p className="product-price">
@@ -124,9 +126,11 @@ export default function CollectionPage({ id }) {
                                             ? `$${(product.Price / 100).toFixed(2)}`
                                             : 'Price not available'}
                                     </p>
+                                    <div className="proddesc">
+                                          <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters</p>      
+                                    </div>
 
                                 </div>
-                            </Link>
                             <div className="main-product-container">
       <div className="quantity-controls">
         <button className="decrease-btn" onClick={handleDecrease}>
@@ -147,6 +151,7 @@ export default function CollectionPage({ id }) {
         + ADD TO CART
       </button>
       {/* <p className="sku">SKU: 3008599</p> */}
+    </div>
     </div>
                         </div>
                     ))}

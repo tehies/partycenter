@@ -19,7 +19,6 @@ const Header = () => {
             data-section-type="header-section"
           >
             <header className="site-header" role="banner">
-              
               <div className="tops_bar_Slider">
                 <Swiper
                   modules={[Autoplay]} // Add modules for autoplay and pagination
@@ -163,52 +162,18 @@ const Header = () => {
                     <div className="header-logo-section col-md-3 col-sm-12 col-xs-12 logo_left">
                       <h1 className="h2 header__logo">
                         <a href="/" className="header__logo-image">
-                  
+
                           <img src="/assets/header-icons/Party-centre-Logo-with-arabic_version-GIF_2_1024x1024_cf17503e-c020-413e-852d-5976479c61fd_1024x1024.avif" />
                         </a>
                       </h1>
-                      <img alt=""
+                      <img
                         src="/assets/header-icons/KSA_Badge_copy.avif"
                         className="badge_image_twenty"
                       />
                     </div>
 
                     <div className="ishiheadercontactblock col-md-8 col-sm-6 col-xs-6 hidden-xs-down">
-                      <div
-                        className="site-header__search col-md-4 hidden-lg-down"
-                        id="_desktop_search"
-                      >
-                        <div className="search-title clearfix collapsed">
-                          <span className="search-toggle"></span>
-                        </div>
-
-                        <div
-                          id="search-container-full"
-                          className="search-info collapse"
-                        >
-                          <form
-                            action="/search"
-                            method="GET"
-                            className="search-form search-header search search--focus"
-                          >
-                            <input
-                              type="text"
-                              name="q"
-                              className="search-input search-header__input search__input"
-                              placeholder="Search for products..."
-                            />
-                            <button
-                              type="submit"
-                              className="search-button search-header__submit search__submit btn--link"
-                            >
-                              <span className="search-logo">
-                                {/* <i className="fas fa-search"></i> */}
-                                <img src="/assets/header-icons/svgexport-8.png" />
-                              </span>
-                            </button>
-                          </form>
-                        </div>
-                      </div>
+                      <HeaderSearch />
                     </div>
 
                     <div className="dextop_icons">
@@ -233,7 +198,7 @@ const Header = () => {
                           <div className="wishlist-content">
                             <a href="">
                               <span className="head-icon">
-                                <img alt="" src="/assets/header-icons/icons8-map-marker-32.png" />
+                                <img src="/assets/header-icons/icons8-map-marker-32.png" />
                                 <p>Store Locations</p>
                               </span>
                             </a>
@@ -247,7 +212,7 @@ const Header = () => {
                             <div className="site-header__cart expand-more">
                               <span className="head-icon cart-logo hidden-lg-down">
                                 <span className="cart-logo hidden-lg-down">
-                                  <img alt="" src="/assets/header-icons/shopping-cart.png" />
+                                  <img src="/assets/header-icons/shopping-cart.png" />
                                   <p>Cart</p>
                                 </span>
 
@@ -266,13 +231,13 @@ const Header = () => {
                   <div className="row">
                     <div className="mobile-width-left">
                       <div id="menu-icon" className="menu-icon hidden-lg-up">
-                        <img alt="" src="/assets/header-icons/hamburger.png" />
+                        <img src="/assets/header-icons/hamburger.png" />
                       </div>
-                      <img alt=""
+                      <img
                         className="mob_badge_image_twenty"
                         src="/assets/header-icons/KSA_Badge_copy.avif"
                       />
-                    </div> 
+                    </div>
 
                     <div className="header-logo-section col-md-3 col-sm-12 col-xs-12 logo_left">
                       <h1
@@ -285,10 +250,10 @@ const Header = () => {
                           itemprop="url"
                           className="header__logo-image"
                         >
-                          <img alt="" src="/assets/header-icons/Party-centre-Logo-with-arabic_version-GIF_2_1024x1024_cf17503e-c020-413e-852d-5976479c61fd_1024x1024.avif" />
+                          <img src="/assets/header-icons/Party-centre-Logo-with-arabic_version-GIF_2_1024x1024_cf17503e-c020-413e-852d-5976479c61fd_1024x1024.avif" />
                         </a>
                       </h1>
-                    </div> 
+                    </div>
 
                     <div className="mobile-width-right">
                       {/* <div id="_mobile_scroll_search" style="display:none;"><i className="material-icons">search</i></div> */}
@@ -299,13 +264,13 @@ const Header = () => {
                             <div className="site-header__cart expand-more">
                               <span className="head-icon cart-logo hidden-lg-down">
                                 <span className="cart-logo hidden-lg-down">
-                                  <img alt="" src="/assets/header-icons/shopping-cart.png" />
+                                  <img src="/assets/header-icons/shopping-cart.png" />
                                 </span>
                                 <p>Cart</p>
-                              </span> 
+                              </span>
 
                               <div className="cart-logo hidden-lg-up">
-                                <img alt="" src="/assets/header-icons/shopping-cart.png" />
+                                <img src="/assets/header-icons/shopping-cart.png" />
                               </div>
                             </div>
                           </div>
@@ -314,10 +279,9 @@ const Header = () => {
                     </div>
                   </div>
                   <div id="_mobile_search">
-                    <div
+                     <div
                       className="search-info collapse"
-                      id="search-container-full"
-                    >
+                      id="search-container-full">
                       <form
                         action="/search"
                         method="GET"
@@ -334,11 +298,12 @@ const Header = () => {
                           className="search-button search-header__submit search__submit btn--link"
                         >
                           <span className="search-logo">
-                            <img alt="" src="/assets/header-icons/svgexport-8.png" />
+                            <img src="/assets/header-icons/svgexport-8.png" />
                           </span>
                         </button>
                       </form>
-                    </div>
+                    </div> 
+                    
                   </div>
                 </div>
 
