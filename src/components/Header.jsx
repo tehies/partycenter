@@ -6,9 +6,26 @@ import "swiper/css/pagination"; // Optional: Pagination module styles
 import { Autoplay } from "swiper/modules";
 import { Link } from 'react-router-dom';
 import HeaderSearch from './HeaderSearch'
-
 import 'font-awesome/css/font-awesome.min.css';
+import { useTranslation } from "react-i18next";
+import React, { useState, useEffect } from "react";
+const languages = [
+  { code: "en", lang: "English" },
+  { code: "ar", lang: "Arabic" },
+];
+
+    
 const Header = () => {
+  const {t} = useTranslation();
+  const { i18n } = useTranslation();
+   
+  const changeLanguage = (lng) => {                             
+      i18n.changeLanguage(lng);
+  };
+
+  useEffect(() => {
+      document.body.dir = i18n.dir();
+  }, [i18n.language]);
   return (
     <div className="header-content">
       <div className="header-nav navfullwidth">
@@ -221,6 +238,21 @@ const Header = () => {
                           </div>
                         </div>
                       </div>
+
+                      <select
+                            className="language-selector"
+                            onChange={(e) => changeLanguage(e.target.value)}
+                            value={i18n.language}
+                        >
+                            {languages.map((lng) => (
+                                <option key={lng.code} value={lng.code}>
+                                    {lng.lang}
+                                </option>
+                            ))}
+                        </select>
+
+
+
                     </div>
                   </div>
                 </div>
