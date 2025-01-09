@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom'; // Import Link for routing
 import '../css/CollectionNav.css';
+import QuantityControls_home from "./QuantityControls_home";
 
 const CollectionNav = ({ id }) => {
     const [collectionProducts, setCollectionProducts] = useState([]);
@@ -9,7 +10,7 @@ const CollectionNav = ({ id }) => {
     const [error, setError] = useState(null);
     const [filteredProducts, setFilteredProducts] = useState([]);
     const [sortOrder, setSortOrder] = useState(''); // Sort state for low to high, high to low, etc.
-const [Prtoductlength,setProductLength]=useState("")
+    const [Prtoductlength, setProductLength] = useState("")
     const collectionId = id; // Dynamically set your collection ID
 
     useEffect(() => {
@@ -19,7 +20,7 @@ const [Prtoductlength,setProductLength]=useState("")
                 // const response = await axios.get(`http://localhost:4000/collectionProduct?collectionId=${collectionId}`);
                 const response = await axios.get(`https://partycenter-vtex-backend.onrender.com/collectionProduct?collectionId=${collectionId}`);
                 console.log('API Response:', response);
-                console.log('API Response:', );
+                console.log('API Response:',);
                 setProductLength(response.data.Size)
                 if (Array.isArray(response.data.Data)) {
                     const products = response.data.Data;
@@ -95,39 +96,42 @@ const [Prtoductlength,setProductLength]=useState("")
 
             {/* Sorting Controls */}
             <div className="srtngprdts">
-            <div className="noprtds">
-            <p>There are {Prtoductlength} products</p>
-            </div>
-            <div className="sorting-controls">
-                <label htmlFor="sortOrder">Sort By:</label>
-                <select id="sortOrder" value={sortOrder} onChange={handleFilterChange}>
-                    <option value="">Default</option>
-                    <option value="lowToHigh">Price: Low to High</option>
-                    <option value="highToLow">Price: High to Low</option>
-                    <option value="aToZ">Name: A to Z</option>
-                    <option value="zToA">Name: Z to A</option>
-                </select>
-            </div>
-            
+                <div className="noprtds">
+                    <p>There are {Prtoductlength} products</p>
+                </div>
+                <div className="sorting-controls">
+                    <label htmlFor="sortOrder">Sort By:</label>
+                    <select id="sortOrder" value={sortOrder} onChange={handleFilterChange}>
+                        <option value="">Default</option>
+                        <option value="lowToHigh">Price: Low to High</option>
+                        <option value="highToLow">Price: High to Low</option>
+                        <option value="aToZ">Name: A to Z</option>
+                        <option value="zToA">Name: Z to A</option>
+                    </select>
+                </div>
+
             </div>
 
             {/* Product Grid */}
             <div className="product-grid">
                 {Array.isArray(filteredProducts) && filteredProducts.length > 0 ? (
                     filteredProducts.map((product) => (
-                        <Link key={product.SkuId} to={`/product/${product.SkuId}`} className="product-card-link">
-                            <div key={product.ProductId} className="product-card">
+                        <div key={product.ProductId} className="product-card">
+                            <Link key={product.SkuId} to={`/product/${product.SkuId}`} className="product-card-link">
                                 <img
                                     src={product.SkuImageUrl || 'default-image.jpg'}
                                     alt={product.ProductName}
                                     className="product-image"
                                 />
-                                <div className="product-name">{product.ProductName}</div>
-                                <p className="product-price">
-                                    {product.Price ? `$${(product.Price / 100).toFixed(2)}` : 'Price not available'}
-                                </p>
-                            </div>
-                        </Link>
+                                c                        </Link>
+                            <div className="product-name">{product.ProductName}</div>
+                            <p className="product-price">
+                                {product.Price ? `$${(product.Price / 100).toFixed(2)}` : 'Price not available'}
+                            </p>
+                            <QuantityControls_home id={product.SkuId} />
+                        </div>
+
+
                     ))
                 ) : (
                     <div>No products found in this collection.</div>

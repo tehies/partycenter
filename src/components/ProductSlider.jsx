@@ -7,7 +7,7 @@ import "swiper/css/navigation";
 import "swiper/css/pagination";
 import { Navigation } from "swiper/modules";
 import "../css/ProductSlider.css";
-import QuantityControls from "./QuantityControls";
+import QuantityControls_home from "./QuantityControls_home";
 
 function ProductSlider() {
   const [products, setProducts] = useState([]);
@@ -26,6 +26,17 @@ function ProductSlider() {
         );
 
         if (response.data?.Products && Array.isArray(response.data.Products)) {
+          const processedProducts = response.data.Products.map(product => {
+            const arabicTitle = product?.SkuDetails?.ProductSpecifications?.find(
+              spec => spec.FieldName === "Arabic title"
+            )?.FieldValues?.[0];
+
+            console.log(`Arabic Title for Product ${product.ProductId}:`, arabicTitle);
+
+            return { ...product, arabicTitle: arabicTitle || "No Arabic Title Available" };
+          });
+          console.log(response.data.Products);
+
           setProducts(response.data.Products);
         } else {
           console.warn("Unexpected response format:", response.data);
@@ -63,20 +74,20 @@ function ProductSlider() {
         spaceBetween={30}
         slidesPerView={5} // Default number of slides for large screens
         breakpoints={{
-            // Define breakpoints for responsiveness
-            0: {
-              slidesPerView: 2, // 1 slide visible on mobile (0px and up)
-              spaceBetween: 10, // Less space between slides on small screens
-            },
-            768: {
-              slidesPerView: 3, // 2 slides visible on tablets (768px and up)
-              spaceBetween: 20,
-            },
-            1024: {
-              slidesPerView: 5, // 4 slides visible on desktops (1024px and up)
-              spaceBetween: 30,
-            },
-          }}
+          // Define breakpoints for responsiveness
+          0: {
+            slidesPerView: 2, // 1 slide visible on mobile (0px and up)
+            spaceBetween: 10, // Less space between slides on small screens
+          },
+          768: {
+            slidesPerView: 3, // 2 slides visible on tablets (768px and up)
+            spaceBetween: 20,
+          },
+          1024: {
+            slidesPerView: 5, // 4 slides visible on desktops (1024px and up)
+            spaceBetween: 30,
+          },
+        }}
       >
         {products.map((product) => (
           <SwiperSlide key={product.SkuId}>
@@ -90,8 +101,8 @@ function ProductSlider() {
               <p className="product-price">
                 {product.Price ? `SAR ${product.Price.toFixed(2)}` : "Price Unavailable"}
               </p>
-              <QuantityControls/>
             </Link>
+            <QuantityControls_home id={product.SkuId} />
           </SwiperSlide>
         ))}
       </Swiper>

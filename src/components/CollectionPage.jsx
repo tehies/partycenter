@@ -2,20 +2,21 @@ import React, { useEffect, useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import axios from 'axios';
 import '../css/CollectionPage.css';
+import QuantityControls_home from "./QuantityControls_home";
 
 export default function CollectionPage({ id }) {
-     const [quantity, setQuantity] = useState(1);
+    const [quantity, setQuantity] = useState(1);
     const handleDecrease = () => {
         setQuantity(prevQuantity => (prevQuantity > 1 ? prevQuantity - 1 : 1));
-      };
-    
-      const handleIncrease = () => {
+    };
+
+    const handleIncrease = () => {
         setQuantity(prevQuantity => prevQuantity + 1);
-      };
-    
-      const handleAddToCart = () => {
+    };
+
+    const handleAddToCart = () => {
         alert(`Added ${quantity} item(s) to the cart`);
-      };
+    };
     const [collectionProducts, setCollectionProducts] = useState([]);
     const { collectionId } = useParams();
     const [products, setProducts] = useState([]);
@@ -76,20 +77,20 @@ export default function CollectionPage({ id }) {
 
             <div className="srtngprdts">
                 <div className="noprtds">
-                <div className="view-toggle-buttons">
-                    <button
-                        className={`toggle-btn gridbtn ${viewType === 'grid' ? 'active' : ''}`}
-                        onClick={() => setViewType('grid')}
-                    >
-                        
-                    </button>
-                    <button
-                        className={`toggle-btn listbtn ${viewType === 'list' ? 'active' : ''}`}
-                        onClick={() => setViewType('list')}
-                    >
-                        
-                    </button>
-                </div>
+                    <div className="view-toggle-buttons">
+                        <button
+                            className={`toggle-btn gridbtn ${viewType === 'grid' ? 'active' : ''}`}
+                            onClick={() => setViewType('grid')}
+                        >
+
+                        </button>
+                        <button
+                            className={`toggle-btn listbtn ${viewType === 'list' ? 'active' : ''}`}
+                            onClick={() => setViewType('list')}
+                        >
+
+                        </button>
+                    </div>
                     <p>There are {Prtoductlength} products</p>
                 </div>
                 <div className="sorting-controls">
@@ -104,7 +105,7 @@ export default function CollectionPage({ id }) {
                 </div>
 
                 {/* View Toggle Buttons */}
-                
+
             </div>
 
             {loading ? (
@@ -117,8 +118,8 @@ export default function CollectionPage({ id }) {
                         <div key={product.SkuId} className={`product-card ${viewType}`}>
                             <Link to={`/product/${product.SkuId}`}>
                                 <img src={product.SkuImageUrl} alt={product.ProductName} />
-                                </Link>
-                                <div className="namebtnnn">
+                            </Link>
+                            <div className="namebtnnn">
                                 <div className="product-info">
                                     <h3>{product.ProductName}</h3>
                                     <p className="product-price">
@@ -127,32 +128,12 @@ export default function CollectionPage({ id }) {
                                             : 'Price not available'}
                                     </p>
                                     <div className="proddesc">
-                                          <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters</p>      
+                                        <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters</p>
                                     </div>
 
                                 </div>
-                            <div className="main-product-container">
-      <div className="quantity-controls">
-        <button className="decrease-btn" onClick={handleDecrease}>
-          -
-        </button>
-        <input
-          type="number"
-          className="quantity-input"
-          value={quantity}
-          min="1"
-          readOnly
-        />
-        <button className="increase-btn" onClick={handleIncrease}>
-          +
-        </button>
-      </div>
-      <button className="add-to-cart-btn" onClick={handleAddToCart}>
-        + ADD TO CART
-      </button>
-      {/* <p className="sku">SKU: 3008599</p> */}
-    </div>
-    </div>
+                                <QuantityControls_home id={product.SkuId} />
+                            </div>
                         </div>
                     ))}
                 </div>
