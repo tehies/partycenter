@@ -1,13 +1,15 @@
 import React, { useEffect, useState, useRef } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
-import "../css/ProductPage.css"; 
+import "../css/ProductPage.css";
 import QuantityControls from "./QuantityControls";
 import FeatureList from "./FeatureList";
 import CouponPopup from "./CouponPopup";
 import Pdp_tabs from "./Pdp_tabs";
+import { useTranslation } from "react-i18next";
 
 const ProductPage = () => {
+  const { t, i18n } = useTranslation();
   const skuId = useParams().id;
   const [sku, setSku] = useState(null);
   const [price, setPrice] = useState(null);
@@ -25,17 +27,30 @@ const ProductPage = () => {
           `https://partycenter-vtex-backend.onrender.com/sku/${skuId}`
         );
         const skuData = skuResponse.data;
-        setSku(skuData);
+
+        // Extract Arabic title
+        const arabicTitle =
+          skuData.ProductSpecifications.find(
+            (spec) => spec.FieldName === "Arabic title"
+          )?.FieldValues?.[0] || null;
+
+        // Add Arabic title to SKU
+        setSku({
+          ...skuData,
+          arabicTitle,
+        });
+
+        setPrice(skuData.bestPrice || 0);
       } catch (err) {
         console.error("Error fetching data:", err);
-        setError("Error fetching product details");
+        setError(t("Error fetching product details"));
       } finally {
         setLoading(false);
       }
     };
 
     fetchData();
-  }, [skuId]);
+  }, [skuId, t]);
 
   const handleVariantClick = (variant) => {
     setSelectedVariant({
@@ -51,26 +66,25 @@ const ProductPage = () => {
     const x = e.clientX - left;
     const y = e.clientY - top;
 
-    // Calculate zoomed position based on mouse coordinates
     const zoomX = (x / width) * 100;
     const zoomY = (y / height) * 100;
 
     setZoomStyle({
       backgroundPosition: `${zoomX}% ${zoomY}%`,
-      display: "block", // Show the zoom overlay
+      display: "block",
     });
   };
 
   const handleMouseEnter = () => {
     setZoomStyle((prevState) => ({
       ...prevState,
-      display: "block", // Ensure the zoom overlay shows when hovering
+      display: "block",
     }));
   };
 
   const handleMouseLeave = () => {
     setZoomStyle({
-      display: "none", // Hide the zoom overlay when not hovering
+      display: "none",
     });
   };
 
@@ -88,7 +102,10 @@ const ProductPage = () => {
 
   const displayedImage =
     selectedVariant?.image || sku.Images?.[0]?.ImageUrl || "default-image.jpg";
-  const displayedName = sku.SkuName || "Product Name Not Available";
+  const displayedName =
+    i18n.language === "ar"
+      ? sku.arabicTitle || t("Product Name Not Available")
+      : sku.ProductName || t("Product Name Not Available");
   const displayedPrice =
     selectedVariant?.price || `$${(price / 100).toFixed(2)}`;
 
@@ -105,9 +122,8 @@ const ProductPage = () => {
           >
             <img
               src={displayedImage}
-              alt="Selected Variant"
+              alt={t("Selected Variant")}
               className="single_product-main-img"
-              source={displayedImage}
             />
             <div
               ref={zoomOverlayRef}
@@ -121,35 +137,27 @@ const ProductPage = () => {
         </div>
         <div className="single_product-info">
           <h1>{displayedName}</h1>
-          {/* <p className="single_product-description">
-            {sku.ProductDescription || "No description available"}
-          </p> */}
-          <p className="single_product-price">Price: {displayedPrice}</p>
+          <p className="single_product-price">{t("Price")}: {displayedPrice}</p>
 
-          
-       {/* CouponPopup */}
-          <CouponPopup/>
+          {/* CouponPopup */}
+          <CouponPopup />
 
           {/* FeatureList */}
-            <FeatureList />
-          {/* end FeatureList */}
+          <FeatureList />
 
-          {/* QuantityControls  */}
+          {/* QuantityControls */}
           <div className="Add-to-cart">
             <QuantityControls />
           </div>
         </div>
-
-        {/* Pdp_tabs */}
-        <Pdp_tabs/>
-
       </div>
+
+      {/* Pdp_tabs */}
+      <Pdp_tabs />
     </div>
   ) : (
-    <div className="not-found-message">SKU not found</div>
+    <div className="not-found-message">{t("SKU not found")}</div>
   );
-
-
 };
 
 export default ProductPage;
