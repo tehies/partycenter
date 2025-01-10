@@ -23,7 +23,7 @@ export default function Categories() {
 
   return (
     <div className="custom-categoreis">
-      <h2>Shop By Category</h2>
+      <h2>{t("Shop By Category")}</h2>
       <div className="categories-grid-container">
         {items.map((item) => (
           <div key={item.id} className="categories-grid-item">
