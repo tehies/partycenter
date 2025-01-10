@@ -45,6 +45,17 @@
     "Children's Birthday":"عيد ميلاد الأطفال",
     "Adult Birthday":"تسوق لجميع الأعمار",
     "Bridal Shower":"حفلات ما قبل الزفاف",
-    "Wedding":"بالونات لحفلات الزفاف"
+    "Wedding":"بالونات لحفلات الزفاف",
+    "Your Cart": "عربة التسوق الخاصة بك",
+    "Image":"صورة",
+    "Products":"منتجات",
+    "Quantity":"كمية",
+    "Price":"سعر",
+    "Total Price":"السعر الاجمالي",
+    "No items in the cart":"لا يوجد عناصر في سلة التسوق",
+    "Clear Cart":"سلة التسوق الشفافة",
+    "Collection Products":"منتجات المجموعة",
+    "There are":"هناك"
+   
  
 }

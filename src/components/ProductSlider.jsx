@@ -115,8 +115,8 @@ function ProductSlider() {
               <p className="product-price">
                 {product.Price ? `SAR ${product.Price.toFixed(2)}` : t("Price Unavailable")}
               </p>
-              <QuantityControls_home id={product.SkuId} />
             </Link>
+              <QuantityControls_home id={product.SkuId} />
           </SwiperSlide>
         ))}
       </Swiper>
