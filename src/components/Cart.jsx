@@ -27,7 +27,7 @@ const Cart = () => {
             setError(null);
 
             try {
-                const { data } = await axios.get(`http://localhost:4000/cart-with-product-details/${orderFormId}`);
+                const { data } = await axios.get(`https://partycenter-vtex-backend.onrender.com/cart-with-product-details/${orderFormId}`);
                 dispatch(setOrderForm(data));
 
                 const productSpecifications = Array.isArray(data?.productDetails) ? data.productDetails : [];
