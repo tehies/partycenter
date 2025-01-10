@@ -18,12 +18,12 @@ const CollectionNav = ({ id }) => {
             try {
                 // Fetch collection products
                 // const response = await axios.get(`http://localhost:4000/collectionProduct?collectionId=${collectionId}`);
-                const response = await axios.get(`https://partycenter-vtex-backend.onrender.com/collectionProduct?collectionId=${collectionId}`);
+                const response = await axios.get(`https://partycenter-vtex-backend.onrender.com/collectionProductDetails?collectionId=${collectionId}`);
                 console.log('API Response:', response);
                 console.log('API Response:',);
                 setProductLength(response.data.Size)
-                if (Array.isArray(response.data.Data)) {
-                    const products = response.data.Data;
+                if (Array.isArray(response.data.Products)) {
+                    const products = response.data.Products;
 
                     // Fetch prices for each product
                     const productsWithPrices = await Promise.all(
@@ -123,7 +123,7 @@ const CollectionNav = ({ id }) => {
                                     alt={product.ProductName}
                                     className="product-image"
                                 />
-                                c                        </Link>
+                         </Link>
                             <div className="product-name">{product.ProductName}</div>
                             <p className="product-price">
                                 {product.Price ? `$${(product.Price / 100).toFixed(2)}` : 'Price not available'}

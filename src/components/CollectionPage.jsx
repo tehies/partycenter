@@ -30,12 +30,13 @@ export default function CollectionPage({ id }) {
     useEffect(() => {
         const fetchCollection = async () => {
             try {
-                const productResponse = await axios.get('https://partycenter-vtex-backend.onrender.com/collectionProduct', {
+                const productResponse = await axios.get('https://partycenter-vtex-backend.onrender.com/collectionProductDetails', {
                     params: { collectionId },
                 });
                 setProducts(productResponse.data.Data || []);
-                setFilteredProducts(productResponse.data.Data || []);
+                setFilteredProducts(productResponse.data.Products || []);
                 setProductLength(productResponse.data.Size);
+                console.log("hello", productResponse.data.Products);
 
                 const collectionResponse = await axios.get('https://partycenter-vtex-backend.onrender.com/collection');
                 const collection = collectionResponse.data.items.find(
