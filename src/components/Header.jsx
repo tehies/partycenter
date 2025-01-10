@@ -311,10 +311,9 @@ const Header = () => {
                     </div>
                   </div>
                   <div id="_mobile_search">
-                    <div
+                     <div
                       className="search-info collapse"
-                      id="search-container-full"
-                    >
+                      id="search-container-full">
                       <form
                         action="/search"
                         method="GET"
@@ -335,7 +334,8 @@ const Header = () => {
                           </span>
                         </button>
                       </form>
-                    </div>
+                    </div> 
+                    
                   </div>
                 </div>
 

@@ -7,9 +7,160 @@
 .collection-container h2 {
     text-align: center;
     margin-bottom: 20px;
-    font-size: 24px;
-    color: #333;
+    font-size: 28px;
+    color: #000;
+    font-weight: 400;
+    font-family: Poppins;
 }
+.product-card.grid .proddesc {
+    display: none;
+}
+.main-product-container button.decrease-btn, .main-product-container input.quantity-input, .main-product-container button.increase-btn {
+    height: 30px;
+}
+
+.product-card.list .product-info {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: left;
+}
+.product-card.list .product-info  h3 {
+    margin-left: 0;
+} 
+.product-container.list .main-product-container{
+    display:flex;  
+    justify-content: space-between; 
+}
+
+/* Grid View Styles */
+.product-container.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 16px;
+}
+
+.product-card.grid {
+    /* border: 1px solid #ddd; */
+    padding: 10px;
+    text-align: center;
+}
+
+button.toggle-btn.listbtn {
+    background-image: url(https://partycentre.sa/cdn/shop/t/67/assets/grid-list-sprite.png?v=60939617790673866581698928880);
+    background-color: transparent;
+    background-position: -36px 1px;
+    height: 22px;
+    width: 22px;
+    border: none;
+    transition: all .3s ease 0s;
+    background-repeat: no-repeat;
+}
+button.toggle-btn.gridbtn {
+    background-color: transparent;
+    background-image: url(https://partycentre.sa/cdn/shop/t/67/assets/grid-list-sprite.png?v=60939617790673866581698928880);
+    background-position: 0 -33px;
+    border: none;
+    background-repeat: no-repeat;
+    transition: all .3s ease 0s;
+    padding-right: 3px;
+}
+.srtngprdts {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 15px;
+    background-color: #f5f5f5;
+    margin-bottom: 15px;
+    line-height: 1.25em;
+}
+button.toggle-btn.listbtn:hover {
+    background-position: -36px -33px;
+}
+.product-card a {
+    text-decoration: unset;
+}
+.noprtds {
+    display: flex;
+    vertical-align: middle;
+    align-items: center;
+}
+
+/* List View Styles */
+.product-container.list {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.product-card.list {
+    display: flex;
+    /* align-items: center; */
+    /* border: 1px solid #ddd; */
+    padding: 10px;
+}
+.product-container.list .product-card.list img {
+    width: 100%;
+    height: auto;
+    margin-right: 16px;
+}
+.product-container.list .product-card a {
+    display: flex;
+    width: 50%;
+    margin-right: 20px;
+    border:1px solid #eee;
+}
+.product-container.list .product-card a:hover{
+    border-bottom: 0px;
+} 
+
+
+.product-card.list h3 {
+    width: 100%;
+    text-align: left;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 15px;
+    margin-bottom: 0;
+}
+.product-container p.product-price {
+    color: #a4a4a4;
+    font-weight: 500;
+    margin-bottom: 0!important;
+}
+.proddesc p {
+    margin-bottom: 10px;
+    color: #888;
+    font-size: 14px;
+    letter-spacing: .8px;
+    line-height: 22px;
+    font-family: 'Poppins';
+}
+
+.product-card.list img {
+    width: 100px;
+    height: 100px;
+    margin-right: 16px;
+}
+
+/* View Toggle Buttons */
+.view-toggle-buttons {
+    margin: 16px 0;
+    display: flex;
+    gap: 8px;
+}
+
+.toggle-btn {
+    padding: 8px 16px;
+    border: 1px solid #ddd;
+    background-color: #f9f9f9;
+    cursor: pointer;
+}
+
+.toggle-btn.active {
+    background-color: #007bff;
+    color: #fff;
+    border-color: #007bff;
+}
+
 
 .product-grid {
     display: grid;
@@ -52,9 +203,11 @@
 
 .product-card h3 {
     margin: 10px;
-    font-size: 18px;
+    font-size: 14px;
     text-align: center;
-    color: #555;
+    color: #000;
+    font-family: 'Poppins';
+    font-weight: 400;
 }
 
 .spinner-container {
@@ -80,5 +233,124 @@
 
     100% {
         transform: rotate(360deg);
+    }
+}
+
+.product-container.grid{
+    padding: 20px 0;
+}
+.collection-container .main-product-container {
+    display: inline-block;
+    margin-top: 5px;
+}
+.product-card.grid h3 {
+    margin-bottom: 0;
+}
+.product-card.grid p.product-price {
+    margin-top: 0!important;
+}
+
+.collection-container .quantity-controls {
+    display: inline-block;
+}
+.collection-container .product-container.list button.add-to-cart-btn {
+    font-size: 12px;
+    font-weight: 400;
+    padding: 10px;
+    width: 32%;
+    border-radius: 10px;
+}
+.product-card.grid button.add-to-cart-btn {
+    font-size: 12px;
+    font-weight: 400;
+    width: 60%;
+    padding: 10px;
+    margin-top: 5px;
+}
+.quantity-controls .quantity-input {
+    width: 40px!important;
+    height: 30px;
+    text-align: right;
+    border: none;
+    outline: none;
+    font-size: 16px;
+    font-weight: bold;
+    color: #333;
+}
+/* .main-product-container .quantity-controls {
+    width: 80%;
+    height: 36px;
+    margin-top: 10px;
+} */
+/* .main-product-container .add-to-cart-btn {
+    background-color: #437dc5;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 0;
+    font-size: 12px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    width: 100%;
+} */
+
+
+@media only screen and (max-width:767px){
+    select#sortOrder {
+        min-width: 200px;
+    }
+    .noprtds {
+        justify-content: center;
+    }
+    .srtngprdts {
+        display: inline-block!important;
+        width: -webkit-fill-available;
+    }
+    .sorting-controls label {
+        display: none!important;
+    }
+    .product-container {
+        padding: 20px 0;
+    }
+    .product-container.grid {
+        grid-template-columns: repeat(auto-fill, minmax(184px, 1fr));
+        gap: 16px 0;
+    }
+    .sorting-controls {
+        justify-content: center;
+    }
+    .product-container.list .product-card a {
+        display: inline-block;
+    }
+}
+
+@media only screen and ( max-width: 600px ){
+    .collection-container .product-container.list button.add-to-cart-btn {
+        font-size: 12px;
+        font-weight: 400;
+        padding: 10px;
+        width: 40%;
+        border-radius: 10px;
+    }
+    .product-container.list .product-card.list img {
+        width: 100%;
+        height: auto;
+        margin-right: 0;
+    }
+    .product-card.list {
+        display: block;
+    }
+    .product-container.list .product-card a {
+        display: block;
+        width: 60%;
+        margin: 0 auto;
+    }
+    .product-card.grid button.add-to-cart-btn {
+        font-size: 12px;
+        font-weight: 400;
+        width: 70%;
+        padding: 10px;
+        margin-top: 5px;
     }
 }

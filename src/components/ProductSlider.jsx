@@ -7,7 +7,7 @@ import "swiper/css/navigation";
 import "swiper/css/pagination";
 import { Navigation } from "swiper/modules";
 import "../css/ProductSlider.css";
-import QuantityControls from "./QuantityControls";
+import QuantityControls_home from "./QuantityControls_home";
 import { useTranslation } from "react-i18next";
 
 function ProductSlider() {
@@ -100,7 +100,11 @@ function ProductSlider() {
             <Link to={`/product/${product.SkuId}`} className="product-card">
               <img
                 src={product.SkuImageUrl || "/placeholder-image.jpg"}
-                alt={product.ProductName || t("Unnamed Product")}
+                alt={
+                  i18n.language === "ar"
+                    ? product.arabicTitle
+                    : product.ProductName || t("Unnamed Product")
+                }
                 className="product-image"
               />
               <h3 className="product-name">
@@ -111,7 +115,7 @@ function ProductSlider() {
               <p className="product-price">
                 {product.Price ? `SAR ${product.Price.toFixed(2)}` : t("Price Unavailable")}
               </p>
-              <QuantityControls />
+              <QuantityControls_home id={product.SkuId} />
             </Link>
           </SwiperSlide>
         ))}

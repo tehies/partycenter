@@ -14,17 +14,19 @@
 
 .disney-princess-block .disney-princess-title {
     font-size: 18px;
-    font-weight: 600!important;
+    font-weight: 600 !important;
     text-align: center;
-    color:#151515;
+    color: #151515;
     margin-top: 10px;
 }
+
 .disney-princess-slider {
     width: 100%;
     float: left;
     position: relative;
     margin-bottom: 30px;
 }
+
 .disney-princess-slider .page-width {
     max-width: 100%;
     padding: 0 30px;
@@ -34,7 +36,9 @@
 .disney-princess a {
     text-decoration: unset;
 }
-.swiper-button-next, .swiper-button-prev {
+
+.swiper-button-next,
+.swiper-button-prev {
     color: #fff;
     background: #4876bb;
     height: 30px;
@@ -44,11 +48,18 @@
     vertical-align: bottom;
     text-align: center;
 }
-.swiper-button-prev:after, .swiper-button-next:after {
+
+.swiper-button-prev:after,
+.swiper-button-next:after {
     font-size: 16px;
 }
 
 .disney-princess-slider .swiper-slide {
     height: auto;
     background: transparent;
+}
+
+.custom-collection h2 {
+    text-align: center;
+
 }

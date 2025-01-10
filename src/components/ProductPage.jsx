@@ -17,9 +17,11 @@ const ProductPage = () => {
   const [error, setError] = useState(null);
   const [selectedVariant, setSelectedVariant] = useState(null);
   const [zoomStyle, setZoomStyle] = useState({});
+  const [recommendations, setRecommendations] = useState([]);  // Add state for recommendations
   const containerRef = useRef(null);
   const zoomOverlayRef = useRef(null);
 
+  // Fetch product data
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -51,6 +53,26 @@ const ProductPage = () => {
 
     fetchData();
   }, [skuId, t]);
+
+  // Fetch recommendations
+  useEffect(() => {
+    const fetchRecommendations = async () => {
+      try {
+        const recommendationsResponse = await axios.get(
+          `https://partycenter-vtex-backend.onrender.com/recommendations/${skuId}`
+        );
+        console.log(recommendationsResponse.data);
+
+        setRecommendations(recommendationsResponse.data);
+      } catch (err) {
+        console.error("Error fetching recommendations:", err);
+      }
+    };
+
+    if (skuId) {
+      fetchRecommendations();
+    }
+  }, [skuId]);
 
   const handleVariantClick = (variant) => {
     setSelectedVariant({
@@ -137,7 +159,10 @@ const ProductPage = () => {
         </div>
         <div className="single_product-info">
           <h1>{displayedName}</h1>
+
           <p className="single_product-price">{t("Price")}: {displayedPrice}</p>
+
+          <p className="single_product-price">Price: {displayedPrice}</p>
 
           {/* CouponPopup */}
           <CouponPopup />
@@ -145,11 +170,39 @@ const ProductPage = () => {
           {/* FeatureList */}
           <FeatureList />
 
+
+          {/* end FeatureList */}
+
+
           {/* QuantityControls */}
           <div className="Add-to-cart">
             <QuantityControls />
           </div>
         </div>
+
+
+        {/* Product Tabs */}
+        <Pdp_tabs />
+
+        {/* Recommended Products */}
+        <div className="recommended-products">
+          <h2>Recommended Products</h2>
+          <div className="recommended-products-grid">
+            {recommendations.map((recommendation) => (
+              <div key={recommendation.productId} className="recommended-product">
+                <img
+                  src={recommendation.items[0]?.images[0]?.imageUrl || "default-image.jpg"}
+                  alt={recommendation.productName}
+                  className="recommended-product-image"
+                />
+                <h3>{recommendation.productName}</h3>
+
+
+              </div>
+            ))}
+          </div>
+        </div>
+
       </div>
 
       {/* Pdp_tabs */}

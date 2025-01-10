@@ -4,10 +4,16 @@ import './index.css';
 import App from './App';
 import './components/i18next';
 
+import { Provider } from 'react-redux';
+import store from './components/Store';
+
+
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <App />
+    <Provider store={store}>
+      <App />
+    </Provider>
   </React.StrictMode>
 );
 
