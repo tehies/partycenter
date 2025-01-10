@@ -1,10 +1,11 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import '../css/categories.css';
 import { useTranslation } from "react-i18next";
 
 export default function Categories() {
 
-  const { t, i18n } = useTranslation();
+  const { t } = useTranslation();
 
   const items = [
     { id: 1, image: "assets/category-images/disney-coustumes.webp", heading: t("Disney Costumes"), collectionId: "141" },
@@ -15,7 +16,7 @@ export default function Categories() {
     { id: 6, image: "assets/category-images/boys-birthday.webp", heading: t("Candles Accessories"), collectionId: "146" },
     { id: 8, image: "assets/category-images/1st-birthday.webp", heading: t("Girl Birthday party"), collectionId: "147" },
     { id: 9, image: "assets/category-images/party-ballons.webp", heading: t("Boy Birthday Party"), collectionId: "148" },
-    { id: 10, image: "assets/category-images/candles-acesories.webp", heading:t("Baby Shark"), collectionId: "149" },
+    { id: 10, image: "assets/category-images/candles-acesories.webp", heading: t("Baby Shark"), collectionId: "149" },
     { id: 11, image: "assets/category-images/graduations.webp", heading: t("Graduation Tableware"), collectionId: "150" },
     { id: 12, image: "assets/category-images/party-decoration.webp", heading: t("Boys Birthday Themes"), collectionId: "152" },
     { id: 13, image: "assets/category-images/party-favours.webp", heading: t("Girls Birthday Themes"), collectionId: "151" },
@@ -27,10 +28,10 @@ export default function Categories() {
       <div className="categories-grid-container">
         {items.map((item) => (
           <div key={item.id} className="categories-grid-item">
-            <a href={`/collection/${item.collectionId}`}>
+            <Link to={`/collection/${item.collectionId}`}>
               <img src={item.image} alt={item.heading} className="categories-image" />
               <h3 className="categories-heading">{item.heading}</h3>
-            </a>
+            </Link>
           </div>
         ))}
       </div>
