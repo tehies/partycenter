@@ -8,11 +8,12 @@ import "swiper/css/pagination";
 import { Navigation } from "swiper/modules";
 import "../css/ProductSlider.css";
 import QuantityControls_home from "./QuantityControls_home";
+import { useTranslation } from "react-i18next";
 
 function ProductSlider() {
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
-
+  const { t, i18n } = useTranslation();
   const collectionId = "142"; // Collection ID for the API request
 
   useEffect(() => {
@@ -26,18 +27,23 @@ function ProductSlider() {
         );
 
         if (response.data?.Products && Array.isArray(response.data.Products)) {
-          const processedProducts = response.data.Products.map(product => {
+          const processedProducts = response.data.Products.map((product) => {
             const arabicTitle = product?.SkuDetails?.ProductSpecifications?.find(
-              spec => spec.FieldName === "Arabic title"
+              (spec) => spec.FieldName === "Arabic title"
             )?.FieldValues?.[0];
 
-            console.log(`Arabic Title for Product ${product.ProductId}:`, arabicTitle);
+            console.log(
+              `Arabic Title for Product ${product.ProductId}:`,
+              arabicTitle
+            );
 
-            return { ...product, arabicTitle: arabicTitle || "No Arabic Title Available" };
+            return {
+              ...product,
+              arabicTitle: arabicTitle || t("No Arabic Title Available"),
+            };
           });
-          console.log(response.data.Products);
 
-          setProducts(response.data.Products);
+          setProducts(processedProducts);
         } else {
           console.warn("Unexpected response format:", response.data);
         }
@@ -49,7 +55,7 @@ function ProductSlider() {
     };
 
     fetchProducts();
-  }, [collectionId]);
+  }, [collectionId, t]);
 
   if (loading) {
     return (
@@ -60,12 +66,12 @@ function ProductSlider() {
   }
 
   if (products.length === 0) {
-    return <div className="no-products">No products found for this collection.</div>;
+    return <div className="no-products">{t("No products found for this collection.")}</div>;
   }
 
   return (
-    <div className="product-slider-container product-container ">
-      <h2 className="slider-title">Latest Collection of Costumes</h2>
+    <div className="product-slider-container product-container">
+      <h2 className="slider-title">{t("Latest Collection of Costumes")}</h2>
       <Swiper
         modules={[Navigation]}
         navigation
@@ -76,15 +82,15 @@ function ProductSlider() {
         breakpoints={{
           // Define breakpoints for responsiveness
           0: {
-            slidesPerView: 2, // 1 slide visible on mobile (0px and up)
+            slidesPerView: 2, // 2 slides visible on mobile (0px and up)
             spaceBetween: 10, // Less space between slides on small screens
           },
           768: {
-            slidesPerView: 3, // 2 slides visible on tablets (768px and up)
+            slidesPerView: 3, // 3 slides visible on tablets (768px and up)
             spaceBetween: 20,
           },
           1024: {
-            slidesPerView: 5, // 4 slides visible on desktops (1024px and up)
+            slidesPerView: 5, // 5 slides visible on desktops (1024px and up)
             spaceBetween: 30,
           },
         }}
@@ -94,15 +100,23 @@ function ProductSlider() {
             <Link to={`/product/${product.SkuId}`} className="product-card">
               <img
                 src={product.SkuImageUrl || "/placeholder-image.jpg"}
-                alt={product.ProductName || "Unnamed Product"}
+                alt={
+                  i18n.language === "ar"
+                    ? product.arabicTitle
+                    : product.ProductName || t("Unnamed Product")
+                }
                 className="product-image"
               />
-              <h3 className="product-name">{product.ProductName || "Unnamed Product"}</h3>
+              <h3 className="product-name">
+                {i18n.language === "ar"
+                  ? product.arabicTitle
+                  : product.ProductName || t("Product Name Not Available")}
+              </h3>
               <p className="product-price">
-                {product.Price ? `SAR ${product.Price.toFixed(2)}` : "Price Unavailable"}
+                {product.Price ? `SAR ${product.Price.toFixed(2)}` : t("Price Unavailable")}
               </p>
+              <QuantityControls_home id={product.SkuId} />
             </Link>
-            <QuantityControls_home id={product.SkuId} />
           </SwiperSlide>
         ))}
       </Swiper>
