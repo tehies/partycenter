@@ -51,14 +51,14 @@ const Header = () => {
                   {/* Slide 1 */}
                   <SwiperSlide>
                     <div className="item">
-                      <h4>Free shipping for orders over 250 SAR</h4>
+                      <h4>{t("Free shipping for orders over 250 SAR")}</h4>
                     </div>
                   </SwiperSlide>
 
                   {/* Slide 2 */}
                   <SwiperSlide>
                     <div className="item">
-                      <h4>Shipping from Riyadh across Saudi Arabia</h4>
+                      <h4>{t("Shipping from Riyadh across Saudi Arabia")}</h4>
                     </div>
                   </SwiperSlide>
 
@@ -87,7 +87,7 @@ const Header = () => {
                             d="M9 2C7.3431 2 6 3.3432 6 5v14c0 1.6569 1.3431 3 3 3h6c1.6569 0 3-1.3431 3-3V5c0-1.6568-1.3431-3-3-3H9zM8 5c0-.5523.4477-1 1-1h6c.5523 0 1 .4477 1 1v14c0 .5523-.4477 1-1 1H9c-.5523 0-1-.4477-1-1V5z"
                           ></path>
                         </svg>
-                        Apple Pay
+                        {t("Apple Pay")}
                       </h4>
                     </div>
                   </SwiperSlide>
@@ -96,8 +96,8 @@ const Header = () => {
                   <SwiperSlide>
                     <div className="item">
                       <h4>
-                        10% Off on First Order. Code:
-                        <b>&nbsp;WELCOME10</b>
+                        {t("10% Off on First Order. Code:")}
+                        <b>&nbsp;{t("WELCOME10")}</b>
                       </h4>
                     </div>
                   </SwiperSlide>
@@ -110,21 +110,21 @@ const Header = () => {
                     <div className="deliverys header-block col-md-4 col-sm-12">
                       <div className="header-text delivery">
                         <span>
-                          10% Off on First Order. Code: <b>WELCOME10</b>
+                        {t("10% Off on First Order. Code:")} <b>{t("WELCOME10")}</b>
                         </span>
                       </div>
                     </div>
 
                     <div className="header-block col-md-4 col-sm-12 text-center shiping">
                       <div className="header-text">
-                        <span>Free Shipping on Orders AED200+</span>
+                        <span>{t("Free Shipping on Orders AED200+")}</span>
                       </div>
                     </div>
 
                     <div className="header-block col-md-4 col-sm-12 text-center ships">
                       <div className="header-text">
                         <span className="EN_trnaslate">
-                          Shipping from Riyadh across Saudi Arabia
+                          {t("Shipping from Riyadh across Saudi Arabia")}
                         </span>
                         <span className="ar_translate hide">
                           الشحن من الرياض عبر المملكة العربية السعودية
@@ -156,7 +156,7 @@ const Header = () => {
                               d="M9 2C7.3431 2 6 3.3432 6 5v14c0 1.6569 1.3431 3 3 3h6c1.6569 0 3-1.3431 3-3V5c0-1.6568-1.3431-3-3-3H9zM8 5c0-.5523.4477-1 1-1h6c.5523 0 1 .4477 1 1v14c0 .5523-.4477 1-1 1H9c-.5523 0-1-.4477-1-1V5z"
                             ></path>
                           </svg>
-                          Apple Pay
+                          {t("Apple Pay")}
                         </span>
                       </div>
                     </div>
@@ -203,7 +203,7 @@ const Header = () => {
                                   className="fa fa-user-o"
                                   aria-hidden="true"
                                 ></i>
-                                <p className="head-account">Account</p>
+                                <p className="head-account">{t("Account")}</p>
                               </span>
                             </a>
                           </span>
@@ -216,7 +216,7 @@ const Header = () => {
                             <a href="">
                               <span className="head-icon">
                                 <img src="/assets/header-icons/icons8-map-marker-32.png" />
-                                <p>Store Locations</p>
+                                <p>{t("Store Locations")}</p>
                               </span>
                             </a>
                           </div>
@@ -230,7 +230,7 @@ const Header = () => {
                               <span className="head-icon cart-logo hidden-lg-down">
                                 <span className="cart-logo hidden-lg-down">
                                   <img src="/assets/header-icons/shopping-cart.png" />
-                                  <p>Cart</p>
+                                  <p>{t("Cart")}</p>
                                 </span>
 
                               </span>
@@ -298,7 +298,7 @@ const Header = () => {
                                 <span className="cart-logo hidden-lg-down">
                                   <img src="/assets/header-icons/shopping-cart.png" />
                                 </span>
-                                <p>Cart</p>
+                                <p>{t("Cart")}</p>
                               </span>
 
                               <div className="cart-logo hidden-lg-up">
@@ -343,34 +343,34 @@ const Header = () => {
                   <div className="mobile_tab_menu dddd ww">
                     <ul>
                       <li>
-                        <Link to="/Disney">Disney Golden Princess</Link>
+                        <Link to="/Disney">{t("Disney Golden Princess")}</Link>
                       </li>
                       <li>
-                        <Link to="/Birthdays">Birthdays</Link>
+                        <Link to="/Birthdays">{t("Birthdays")}</Link>
                       </li>
                       <li>
-                        <Link to="/Balloons">Balloons</Link>
+                        <Link to="/Balloons">{t("Balloons")}</Link>
                       </li>
                       <li>
-                        <Link to="/Costumes">Costumes</Link>
+                        <Link to="/Costumes">{t("Costumes")}</Link>
                       </li>
                       <li>
-                        <Link to="/Decorations">Decorations</Link>
+                        <Link to="/Decorations">{t("Decorations")}</Link>
                       </li>
                       <li>
-                        <Link to="/Party_Favours">Party Favours</Link>
+                        <Link to="/Party_Favours">{t("Party Favours")}</Link>
                       </li>
                       <li>
-                        <Link to="/Theme_Parties">Theme Parties</Link>
+                        <Link to="/Theme_Parties">{t("Theme Parties")}</Link>
                       </li>
                       <li>
-                        <Link to="/Baby_Events">Baby Events</Link>
+                        <Link to="/Baby_Events">{t("Baby Events")}</Link>
                       </li>
                       <li>
-                        <Link to="/Special_Occasions">Special Occasions</Link>
+                        <Link to="/Special_Occasions">{t("Special Occasions")}</Link>
                       </li>
                       <li>
-                        <Link to="/Holiday_Seasons">Holiday Seasons</Link>
+                        <Link to="/Holiday_Seasons">{t("Holiday Seasons")}</Link>
                       </li>
                     </ul>
                   </div>
@@ -394,39 +394,39 @@ const Header = () => {
                   >
                     <ul className="top-menu" id="top-menu">
                       <li className="category">
-                        <Link to="/Disney">Disney Golden Princess</Link>
+                        <Link to="/Disney">{t("Disney Golden Princess")}</Link>
                       </li>
                       <li className="category">
-                        <Link to="/Birthdays">Birthdays</Link>
+                        <Link to="/Birthdays">{t("Birthdays")}</Link>
                       </li>
                       <li className="category">
-                        <Link to="/Balloons">Balloons</Link>
+                        <Link to="/Balloons">{t("Balloons")}</Link>
 
                       </li>
                       <li className="category">
-                        <Link to="/Costumes">Costumes</Link>
+                        <Link to="/Costumes">{t("Costumes")}</Link>
 
                       </li>
                       <li className="category">
-                        <Link to="/Decorations">Decorations</Link>
+                        <Link to="/Decorations">{t("Decorations")}</Link>
 
                       </li>
                       <li className="category">
-                        <Link to="/Party_Favours">Party Favours</Link>
+                        <Link to="/Party_Favours">{t("Party Favours")}</Link>
 
                       </li>
                       <li className="category">
-                        <Link to="/Theme_Parties">Theme Parties</Link>
+                        <Link to="/Theme_Parties">{t("Theme Parties")}</Link>
 
                       </li>
-                      <li className="category"> <Link to="/Baby_Events">Baby Events</Link></li>
+                      <li className="category"> <Link to="/Baby_Events">{t("Baby Events")}</Link></li>
 
                       <li className="category">
-                        <Link to="/Special_Occasions">Special Occasions</Link>
+                        <Link to="/Special_Occasions">{t("Special Occasions")}</Link>
 
                       </li>
                       <li className="category">
-                        <Link to="/Holiday_Seasons">Holiday Seasons</Link>
+                        <Link to="/Holiday_Seasons">{t("Holiday Seasons")}</Link>
 
                       </li>
                     </ul>

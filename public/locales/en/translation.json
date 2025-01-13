@@ -3,6 +3,7 @@
        "Free Shipping on Orders AED200+": "Free Shipping on Orders AED200+",
        "Shipping from Riyadh across Saudi Arabia":"Shipping from Riyadh across Saudi Arabia",
        "Apple Pay":"Apple Pay",
+       "Store Locations":"Store Locations",
        "Disney Golden Princess":"Disney Golden Princess",
        "Birthdays":"Birthdays",
        "Balloons":"Balloons",
@@ -55,5 +56,7 @@
             "No items in the cart":"No items in the cart",
             "Clear Cart":"Clear Cart",
             "Collection Products":"Collection Products",
-            "There are":"There are"
+            "There are":"There are",
+            "Cart":"العربة",
+            "Account":"Account"
  }

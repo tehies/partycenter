@@ -1,8 +1,10 @@
 {
     "10% Off on First Order. Code: WELCOME10":"خصم ١٠٪؜ على اول طلب الكود: WELCOME10",
     "Free Shipping on Orders AED200+":"شحن مجاني للطلبات التي تزيد عن 250 ريال سعودي",
+    "Free shipping for orders over 250 SAR":"شحن مجاني للطلبات التي تزيد عن 250 ريال سعودي",
     "Shipping from Riyadh across Saudi Arabia":"الشحن من الرياض عبر المملكة العربية السعودية",
     "Apple Pay":"أبل الدفع",
+    "Store Locations":"مواقع المتاجر",
     "Disney Golden Princess":"ديزني الأميرة الذهبية",
     "Birthdays":"أعياد",
     "Balloons":"بالونات",
@@ -55,7 +57,8 @@
     "No items in the cart":"لا يوجد عناصر في سلة التسوق",
     "Clear Cart":"سلة التسوق الشفافة",
     "Collection Products":"منتجات المجموعة",
-    "There are":"هناك"
-   
+    "There are":"هناك",
+   "Cart":"العربة",
+   "Account":"حساب"
  
 }

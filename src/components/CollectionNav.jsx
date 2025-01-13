@@ -3,7 +3,7 @@ import axios from 'axios';
 import { Link } from 'react-router-dom'; // Import Link for routing
 import '../css/CollectionNav.css';
 import QuantityControls_home from "./QuantityControls_home";
-
+import { useTranslation } from "react-i18next";
 const CollectionNav = ({ id }) => {
     const [collectionProducts, setCollectionProducts] = useState([]);
     const [loading, setLoading] = useState(true);
@@ -12,35 +12,131 @@ const CollectionNav = ({ id }) => {
     const [sortOrder, setSortOrder] = useState(''); // Sort state for low to high, high to low, etc.
     const [Prtoductlength, setProductLength] = useState("")
     const collectionId = id; // Dynamically set your collection ID
+    const { t, i18n } = useTranslation();
+    // useEffect(() => {
+    //     const fetchCollectionProducts = async () => {
+    //         try {
+    //             // Fetch collection products
+    //             // const response = await axios.get(`http://localhost:4000/collectionProduct?collectionId=${collectionId}`);
+    //             const response = await axios.get(`https://partycenter-vtex-backend.onrender.com/collectionProductDetails?collectionId=${collectionId}`);
+    //             console.log('API Response:', response);
+    //             console.log('API Response:',);
+    //             setProductLength(response.data.Size)
+
+    //             if (response.data?.Products && Array.isArray(response.data.Products)) {
+    //                 const processedProducts = response.data.Products.map((product) => {
+    //                     const arabicTitle = product?.SkuDetails?.ProductSpecifications?.find(
+    //                         (spec) => spec.FieldName === "Arabic title"
+    //                     )?.FieldValues?.[0];
+    
+    //                     console.log(
+    //                         `Arabic Title for Product ${product.ProductId}:`,
+    //                         arabicTitle
+    //                     );
+    
+    //                     return {
+    //                         ...product,
+    //                         arabicTitle: arabicTitle || t("No Arabic Title Available"),
+    //                     };
+    //                 });
+    //                 setFilteredProducts(processedProducts);
+    //             }
+
+    //             if (Array.isArray(response.data.Products)) {
+    //                 const products = response.data.Products;
+
+    //                 // Fetch prices for each product
+    //                 const productsWithPrices = await Promise.all(
+    //                     products.map(async (product) => {
+    //                         try {
+    //                             const priceResponse = await axios.get(`https://partycenter-vtex-backend.onrender.com/pricing/${product.SkuId}`);
+    //                             // const priceResponse = await axios.get(`http://localhost:4000/pricing/${product.SkuId}`);
+    //                             console.log(`Price for SkuId ${product.SkuId}:`, priceResponse.data.basePrice);
+
+    //                             return { ...product, Price: priceResponse.data.basePrice || 0 };
+    //                         } catch (err) {
+    //                             console.error(`Error fetching price for SkuId ${product.SkuId}:`, err);
+    //                             return { ...product, Price: 0 };
+    //                         }
+    //                     })
+    //                 );
+
+    //                 setCollectionProducts(productsWithPrices);
+    //                 setFilteredProducts(productsWithPrices);
+    //             } else {
+    //                 setError('Data is not an array');
+    //             }
+    //         } catch (err) {
+    //             console.error('Error fetching products:', err);
+    //             setError('Error fetching products');
+    //         } finally {
+    //             setLoading(false);
+    //         }
+    //     };
+
+    //     fetchCollectionProducts();
+    // }, [collectionId]);
 
     useEffect(() => {
         const fetchCollectionProducts = async () => {
             try {
                 // Fetch collection products
-                // const response = await axios.get(`http://localhost:4000/collectionProduct?collectionId=${collectionId}`);
-                const response = await axios.get(`https://partycenter-vtex-backend.onrender.com/collectionProductDetails?collectionId=${collectionId}`);
+                const response = await axios.get(
+                    `https://partycenter-vtex-backend.onrender.com/collectionProductDetails?collectionId=${collectionId}`
+                );
+    
                 console.log('API Response:', response);
-                console.log('API Response:',);
-                setProductLength(response.data.Size)
-                if (Array.isArray(response.data.Products)) {
-                    const products = response.data.Products;
-
+    
+                // Set product length
+                setProductLength(response.data?.Size || 0);
+    
+                // Process products if the response data contains an array of products
+                if (response.data?.Products && Array.isArray(response.data.Products)) {
+                    const processedProducts = response.data.Products.map((product) => {
+                        const arabicTitle = product?.SkuDetails?.ProductSpecifications?.find(
+                            (spec) => spec.FieldName === "Arabic title"
+                        )?.FieldValues?.[0];
+    
+                        console.log(
+                            `Arabic Title for Product ${product.ProductId}:`,
+                            arabicTitle
+                        );
+    
+                        return {
+                            ...product,
+                            arabicTitle: arabicTitle || t("No Arabic Title Available"),
+                        };
+                    });
+    
+                    setFilteredProducts(processedProducts);
+    
                     // Fetch prices for each product
                     const productsWithPrices = await Promise.all(
-                        products.map(async (product) => {
+                        processedProducts.map(async (product) => {
                             try {
-                                const priceResponse = await axios.get(`https://partycenter-vtex-backend.onrender.com/pricing/${product.SkuId}`);
-                                // const priceResponse = await axios.get(`http://localhost:4000/pricing/${product.SkuId}`);
-                                console.log(`Price for SkuId ${product.SkuId}:`, priceResponse.data.basePrice);
-
-                                return { ...product, Price: priceResponse.data.basePrice || 0 };
+                                const priceResponse = await axios.get(
+                                    `https://partycenter-vtex-backend.onrender.com/pricing/${product.SkuId}`
+                                );
+    
+                                console.log(
+                                    `Price for SkuId ${product.SkuId}:`,
+                                    priceResponse.data?.basePrice
+                                );
+    
+                                return {
+                                    ...product,
+                                    Price: priceResponse.data?.basePrice || 0,
+                                };
                             } catch (err) {
-                                console.error(`Error fetching price for SkuId ${product.SkuId}:`, err);
+                                console.error(
+                                    `Error fetching price for SkuId ${product.SkuId}:`,
+                                    err
+                                );
                                 return { ...product, Price: 0 };
                             }
                         })
                     );
-
+    
                     setCollectionProducts(productsWithPrices);
                     setFilteredProducts(productsWithPrices);
                 } else {
@@ -53,9 +149,10 @@ const CollectionNav = ({ id }) => {
                 setLoading(false);
             }
         };
-
+    
         fetchCollectionProducts();
     }, [collectionId]);
+    
 
     // Function to handle price filter
     const handleFilterChange = (event) => {
@@ -124,7 +221,17 @@ const CollectionNav = ({ id }) => {
                                     className="product-image"
                                 />
                          </Link>
-                            <div className="product-name">{product.ProductName}</div>
+                            <div className="product-name">
+                                
+                                
+                            { i18n.language === "ar"
+                  ? product.arabicTitle
+                  : product.ProductName || t("Product Name Not Available")}
+
+
+
+
+                            </div>
                             <p className="product-price">
                                 {product.Price ? `$${(product.Price / 100).toFixed(2)}` : 'Price not available'}
                             </p>
