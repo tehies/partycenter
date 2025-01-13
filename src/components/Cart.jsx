@@ -4,7 +4,7 @@ import { useParams } from 'react-router-dom';
 import axios from 'axios';
 import { setOrderForm, clearCart, incrementQuantity, decrementQuantity } from './cartSlice';
 import "../css/Cart.css";
-
+import { useTranslation } from "react-i18next";
 const Loader = () => (
     <div className="loader">
         <div className="spinner"></div>
@@ -17,7 +17,7 @@ const Cart = () => {
     const [error, setError] = useState(null);
     const cart = useSelector((state) => state.cart.orderForm);
     const dispatch = useDispatch();
-
+    const { t, i18n } = useTranslation();
     useEffect(() => {
         const fetchCartDetails = async () => {
             const storedOrderFormId = localStorage.getItem('orderFormId');
@@ -79,16 +79,16 @@ const Cart = () => {
 
     return (
         <div className='cart-details'>
-            <h1>Your Cart</h1>
+            <h1>{t("Your Cart")}</h1>
             {cart.items && cart.items.length > 0 ? (
                 <table className='cartTable'>
                     <thead>
                         <tr>
-                            <th>Image</th>
-                            <th>Products</th>
-                            <th>Quantity</th>
-                            <th>Price</th>
-                            <th>Total Price</th>
+                            <th>{t("Image")}</th>
+                            <th>{t("Products")}</th>
+                            <th>{t("Quantity")}</th>
+                            <th>{t("Price")}</th>
+                            <th>{t("Total Price")}</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -131,7 +131,7 @@ const Cart = () => {
                     <tfoot>
                         <tr>
                             <td colSpan='4' style={{ textAlign: 'right' }}>
-                                <strong>Total Price:</strong>
+                                <strong>{t("Total Price")}:</strong>
                             </td>
                             <td>
                                 <strong>${(calculateTotalPrice() / 100).toFixed(2)}</strong>
@@ -140,10 +140,10 @@ const Cart = () => {
                     </tfoot>
                 </table>
             ) : (
-                <p>No items in the cart</p>
+                <p>{t("No items in the cart")}</p>
             )}
             <button className='clear_Button' onClick={handleClearCart} style={{ marginTop: '20px' }}>
-                Clear Cart
+                {t("Clear Cart")}
             </button>
         </div>
     );
