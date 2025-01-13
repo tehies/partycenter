@@ -14,6 +14,7 @@ import ProductPage from './components/ProductPage'; // Component for Product API
 import Cart from './components/Cart';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import CollectionNav from './components/CollectionNav';
+import '../src/css/direction.css'
 
 function App() {
   return (

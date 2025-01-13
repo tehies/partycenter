@@ -1,6 +1,12 @@
 /* General container */
-.main-product-container {
+/* .main-product-container {
     display: flex;
+    align-items: center;
+    gap: 20px;
+  } */
+
+  .main-product-container {
+    display: inline-block;
     align-items: center;
     gap: 20px;
   }
@@ -10,8 +16,9 @@
     display: flex;
     align-items: center;
     border: 1px solid #ccc;
-    border-radius: 5px;
+    margin-bottom: 10px;
     overflow: hidden;
+    justify-content: center;
     font-family: Arial, sans-serif;
   }
   
@@ -47,7 +54,7 @@
     border: none;
     border-radius: 5px;
     padding: 10px 20px;
-    font-size: 16px;
+    font-size: 12px;
     font-weight: bold;
     cursor: pointer;
     transition: background-color 0.3s ease;
@@ -101,4 +108,8 @@ button.increase-btn {
   display: inline-block;
   justify-content: space-between;
 }
+.quantity-controls .quantity-input {
+  text-align: center;
 }
+}
+

@@ -31,8 +31,8 @@
 }
 
 .cart-details table th {
-    background-color: #437dc524;
-    color: rgb(22, 18, 18);
+    background-color: #4a78bd;
+    color: white;
     font-weight: bold;
 }
 
@@ -50,7 +50,7 @@
 
 .cart-details table td.Quantity-btn .btn-style button {
     padding: 8px 14px;
-    background-color: #437dc524;
+    background-color: #4a78bd;
     color: white;
     border: none;
     border-radius: 5px;
@@ -62,12 +62,12 @@
 }
 
 .cart-details table td.Quantity-btn .btn-style button:disabled {
-    background-color: #aaa;
+    background-color: #437dc57a;
     cursor: not-allowed;
 }
 
 .cart-details .clear_Button {
-    background-color: #437ec580;
+    background-color: #4a78bd;
     color: white;
     border: none;
     border-radius: 5px;

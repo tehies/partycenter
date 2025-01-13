@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom'; // Import Link for routing
 import '../css/CollectionNav.css';
 import QuantityControls_home from "./QuantityControls_home";
 
+
 const CollectionNav = ({ id }) => {
     const [collectionProducts, setCollectionProducts] = useState([]);
     const [loading, setLoading] = useState(true);
@@ -12,6 +13,7 @@ const CollectionNav = ({ id }) => {
     const [sortOrder, setSortOrder] = useState(''); // Sort state for low to high, high to low, etc.
     const [Prtoductlength, setProductLength] = useState("")
     const collectionId = id; // Dynamically set your collection ID
+    const [viewType, setViewType] = useState('grid'); // State for view type
 
     useEffect(() => {
         const fetchCollectionProducts = async () => {
@@ -97,6 +99,20 @@ const CollectionNav = ({ id }) => {
             {/* Sorting Controls */}
             <div className="srtngprdts">
                 <div className="noprtds">
+                    <div className="view-toggle-buttons">
+                        <button
+                            className={`toggle-btn gridbtn ${viewType === 'grid' ? 'active' : ''}`}
+                            onClick={() => setViewType('grid')}
+                        >
+
+                        </button>
+                        <button
+                            className={`toggle-btn listbtn ${viewType === 'list' ? 'active' : ''}`}
+                            onClick={() => setViewType('list')}
+                        >
+
+                        </button>
+                    </div>
                     <p>There are {Prtoductlength} products</p>
                 </div>
                 <div className="sorting-controls">
@@ -110,13 +126,15 @@ const CollectionNav = ({ id }) => {
                     </select>
                 </div>
 
+                {/* View Toggle Buttons */}
+
             </div>
 
             {/* Product Grid */}
-            <div className="product-grid">
+            <div className= {` col-nav product-grid ${viewType}`}>
                 {Array.isArray(filteredProducts) && filteredProducts.length > 0 ? (
                     filteredProducts.map((product) => (
-                        <div key={product.ProductId} className="product-card">
+                        <div key={product.ProductId} className={`product-card ${viewType}`}>
                             <Link key={product.SkuId} to={`/product/${product.SkuId}`} className="product-card-link">
                                 <img
                                     src={product.SkuImageUrl || 'default-image.jpg'}
@@ -124,11 +142,16 @@ const CollectionNav = ({ id }) => {
                                     className="product-image"
                                 />
                          </Link>
-                            <div className="product-name">{product.ProductName}</div>
+                         <div className='namebtnnn nav-data'>
+                            <h3 className="product-name">{product.ProductName}</h3>
                             <p className="product-price">
                                 {product.Price ? `$${(product.Price / 100).toFixed(2)}` : 'Price not available'}
                             </p>
-                            <QuantityControls_home id={product.SkuId} />
+                            <p className='product-descrition'>{product.SkuDetails.ProductDescription}</p>
+                                <QuantityControls_home id={product.SkuId} />
+                        </div>
+                           
+
                         </div>
 
 

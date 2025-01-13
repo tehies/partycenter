@@ -162,7 +162,7 @@ const ProductPage = () => {
 
           <p className="single_product-price">{t("Price")}: {displayedPrice}</p>
 
-          <p className="single_product-price">Price: {displayedPrice}</p>
+          {/* <p className="single_product-price">Price: {displayedPrice}</p> */}
 
           {/* CouponPopup */}
           <CouponPopup />
@@ -205,8 +205,7 @@ const ProductPage = () => {
 
       </div>
 
-      {/* Pdp_tabs */}
-      <Pdp_tabs />
+     
     </div>
   ) : (
     <div className="not-found-message">{t("SKU not found")}</div>

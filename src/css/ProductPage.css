@@ -220,9 +220,14 @@
 }
 
 .recommended-product h3 {
-    font-size: 18px;
-    font-weight: 600;
+    font-size: 14px;
+    font-weight: 400;
     margin: 10px 0;
+    width: 200px;
+    white-space: nowrap;
+    overflow: hidden;
+    font-family: 'Poppins';
+    text-overflow: ellipsis;
 }
 
 .recommended-product p {
