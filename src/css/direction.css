@@ -39,13 +39,23 @@ body[dir="rtl"]  .product-container.list .product-card.list img {
     margin-left: 16px;
 }
 
-body[dir="rtl"] .product-card.list {
-    display: flex;
-    column-gap: 24px;
-}
+
 
 body[dir="rtl"] .col-nav.product-grid.list .product-card.list img {
     width: 70%;
     height: auto;
     margin-left: 16px;
 }
+body[dir="rtl"] .product-container.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 16px;
+    direction: ltr;
+}
+
+@media only screen and ( min-width :600px ){
+    body[dir="rtl"] .product-card.list {
+        display: flex;
+        column-gap: 24px;
+    }
+    } 
