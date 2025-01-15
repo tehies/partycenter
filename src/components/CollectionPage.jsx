@@ -228,6 +228,7 @@
 
 import React, { useEffect, useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
+import QuantityControls_home from "./QuantityControls_home";
 import axios from 'axios';
 import '../css/CollectionPage.css';
 import { useTranslation } from "react-i18next";
@@ -346,16 +347,16 @@ export default function CollectionPage({ id }) {
 
                         </button>
                     </div>
-                    <p>There are {Prtoductlength} products</p>
+                    <p>{t("There are")} {Prtoductlength} {t("Products")}</p>
                 </div>
                 <div className="sorting-controls">
-                    <label htmlFor="sortOrder">Sort By:</label>
+                    <label htmlFor="sortOrder">{t("Sort By:")}</label>
                     <select id="sortOrder" value={sortOrder} onChange={handleFilterChange}>
-                        <option value="">Default</option>
-                        <option value="lowToHigh">Price: Low to High</option>
-                        <option value="highToLow">Price: High to Low</option>
-                        <option value="aToZ">Name: A to Z</option>
-                        <option value="zToA">Name: Z to A</option>
+                        <option value="">{t("Default")}</option>
+                        <option value="lowToHigh">{t("Price: Low to High")}</option>
+                        <option value="highToLow">{t("Price: High to Low")}</option>
+                        <option value="aToZ">{t("Name: A to Z")}</option>
+                        <option value="zToA">{t("Name: Z to A")}</option>
                     </select>
                 </div>
 
@@ -388,31 +389,11 @@ export default function CollectionPage({ id }) {
                                     </p>
 
                                 </div>
-                                <div className="main-product-container">
-                                    <div className="quantity-controls">
-                                        <button className="decrease-btn" onClick={handleDecrease}>
-                                            -
-                                        </button>
-                                        <input
-                                            type="number"
-                                            className="quantity-input"
-                                            value={quantity}
-                                            min="1"
-                                            readOnly
-                                        />
-                                        <button className="increase-btn" onClick={handleIncrease}>
-                                            +
-                                        </button>
-                                    </div>
-                                    <button className="add-to-cart-btn" onClick={handleAddToCart}>
-                                        + ADD TO CART
-                                    </button>
-                                    {/* <p className="sku">SKU: 3008599</p> */}
-                                </div>
+                                <QuantityControls_home id={product.SkuId} />
                             </div>
                         </div>
                     ))}
-                </div>
+                </div>   
             )}
         </div>
     );

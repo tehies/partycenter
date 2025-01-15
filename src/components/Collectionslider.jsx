@@ -5,11 +5,12 @@ import 'swiper/css/navigation'; // Optional: Navigation module styles
 import 'swiper/css/pagination'; // Optional: Pagination module styles
 import { Navigation } from 'swiper/modules'; // Optional modules
 import '../css/collection-slider.css';
-
+import { useTranslation } from "react-i18next";
 const Collectionslider = () => {
+    const {t} = useTranslation();
   return (
     <div className='custom-collection'>
-      <h2>WHAT ARE YOU PLANNING TO CELEBRATE?</h2>
+      <h2>{t("WHAT ARE YOU PLANNING TO CELEBRATE?")}</h2>
       <div className="disney-princess-slider">
         <div className="page-width">
           <Swiper
@@ -52,7 +53,7 @@ const Collectionslider = () => {
                     />
                   </div>
                   <div className="disney-princess-block">
-                    <div className="disney-princess-title">Halloween</div>
+                    <div className="disney-princess-title">{t("Halloween")}</div>
                   </div>
                 </a>
               </div>
@@ -68,7 +69,7 @@ const Collectionslider = () => {
                     />
                   </div>
                   <div className="disney-princess-block">
-                    <div className="disney-princess-title">New Year</div>
+                    <div className="disney-princess-title">{t("New Year")}</div>
                   </div>
                 </a>
               </div>
@@ -81,7 +82,7 @@ const Collectionslider = () => {
                     <img src="//partycentre.sa/cdn/shop/files/h_2__11zon.webp?v=1727351612" alt="Bridal Shower" />
                   </div>
                   <div className="disney-princess-block">
-                    <div className="disney-princess-title">Bridal Shower</div>
+                    <div className="disney-princess-title">{t("Bridal Shower")}</div>
                   </div>
                 </a>
               </div>
@@ -94,7 +95,7 @@ const Collectionslider = () => {
                     <img src="//partycentre.sa/cdn/shop/files/Wedding_1__1_11zon.webp?v=1727349197" alt="Wedding" />
                   </div>
                   <div className="disney-princess-block">
-                    <div className="disney-princess-title">Wedding</div>
+                    <div className="disney-princess-title">{t("Wedding")}</div>
                   </div>
                 </a>
               </div>
@@ -107,7 +108,7 @@ const Collectionslider = () => {
                     <img src="//partycentre.sa/cdn/shop/files/First-Bday_1__4_11zon.webp?v=1727349197" alt="1st Birthday" />
                   </div>
                   <div className="disney-princess-block">
-                    <div className="disney-princess-title">1st Birthday</div>
+                    <div className="disney-princess-title">{t("1st Birthday")}</div>
                   </div>
                 </a>
               </div>

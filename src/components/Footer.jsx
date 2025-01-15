@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import "../css/footer.css";
-
+import { useTranslation } from "react-i18next";
 const Footer = () => {
   const [email, setEmail] = useState("");
   const [isChecked, setIsChecked] = useState(false);
-
+  const {t} = useTranslation();
   const handleSubmit = (e) => {
     e.preventDefault();
     if (!isChecked) {
@@ -33,7 +33,7 @@ const Footer = () => {
                 <img src="https://cdn.shopify.com/s/files/1/0571/0525/2512/files/1_e547ccd9-820f-4f20-9cb6-7c56da041ac6.webp?v=1696935489" />
               </div>
               <div className="textfoot">
-                <h3>In-store Pick-Up</h3>
+                <h3>{t("In-store Pick-Up")}</h3>
               </div>
             </div>
           </li>
@@ -43,7 +43,7 @@ const Footer = () => {
                 <img src="https://cdn.shopify.com/s/files/1/0571/0525/2512/files/footer_logos-transparent.png?v=1696941049" />
               </div>
               <div className="textfoot">
-                <h3>Registered in KSA</h3>
+                <h3>{t("Registered in KSA")}</h3>
               </div>
             </div>
           </li>
@@ -53,7 +53,7 @@ const Footer = () => {
                 <img src="https://cdn.shopify.com/s/files/1/0571/0525/2512/files/6_0f276a97-96f3-4be8-b543-c31b43d8944e.png?v=1696935088" />
               </div>
               <div className="textfoot">
-                <h3>100% Authentic</h3>
+                <h3>{t("100% Authentic")}</h3>
               </div>
             </div>
           </li>
@@ -64,7 +64,7 @@ const Footer = () => {
               </div>
               <div className="textfoot">
                 <h3 className="neomic_for_desctop">
-                  Free Shipping on Orders SAR 250+
+                  {t("Free Shipping on Orders SAR 250+")}
                 </h3>
                 {/* <h3 class="neomic_for_mobile" style="display:none">Free Shipping on Orders SAR 250+</h3> */}
               </div>
@@ -79,8 +79,8 @@ const Footer = () => {
             <div className="block_newsletter footer-block">
               <div id="newsletter-container" className="newsletter-inner">
                 <div className="newsletter_text col-md-4 col-lg-4">
-                  <h2 className="title_block EN_trnaslate">Folow Us</h2>
-                  <h3 className="followus_party">#PARTYCENTRE</h3>
+                  <h2 className="title_block EN_trnaslate">{t("Folow Us")}</h2>
+                  <h3 className="followus_party">#{t("PARTYCENTRE")}</h3>
                   <div className="footer-right">
                     <div className="follow-us">
                       <div
@@ -103,7 +103,7 @@ const Footer = () => {
                                       aria-hidden="true"
                                     ></i>
                                     <span className="icon__-text">
-                                      Instagram
+                                      {t("Instagram")}
                                     </span>
                                   </a>
                                 </li>
@@ -124,8 +124,7 @@ const Footer = () => {
                                       <path d="M448,209.91a210.06,210.06,0,0,1-122.77-39.25V349.38A162.55,162.55,0,1,1,185,188.31V278.2a74.62,74.62,0,1,0,52.23,71.18V0l88,0a121.18,121.18,0,0,0,1.86,22.17h0A122.18,122.18,0,0,0,381,102.39a121.43,121.43,0,0,0,67,20.14Z"></path>
                                     </svg>
                                     <span className="icon__-text">
-                                      Translation missing:
-                                      en.general.social.tiktok
+                                      {t("Translation missing: en.general.social.tiktok")}
                                     </span>
                                   </a>
                                 </li>
@@ -141,7 +140,7 @@ const Footer = () => {
                                       aria-hidden="true"
                                     ></i>
                                     <span className="icon__-text">
-                                      Facebook
+                                      {t("Facebook")}
                                     </span>
                                   </a>
                                 </li>
@@ -156,7 +155,7 @@ const Footer = () => {
                                       className="fa fa-youtube-play"
                                       aria-hidden="true"
                                     ></i>
-                                    <span className="icon__-text">YouTube</span>
+                                    <span className="icon__-text">{t("YouTube")}</span>
                                   </a>
                                 </li>
                                 <li className="pinterest">
@@ -171,7 +170,7 @@ const Footer = () => {
                                       aria-hidden="true"
                                     ></i>
                                     <span className="icon__-text">
-                                      Pinterest
+                                      {t("Pinterest")}
                                     </span>
                                   </a>
                                 </li>
@@ -194,7 +193,7 @@ const Footer = () => {
                       className="contact-info-inner footer-dropdown"
                     >
                       <h2 className="footer-heading EN_trnaslate">
-                        Contact Us
+                        {t("Contact Us")}
                       </h2>
                       <h2 className="footer-heading ar_translate hide">
                         اتصل بنا
@@ -225,20 +224,20 @@ const Footer = () => {
                         <li className="site-footer__linklist-item shop-contact">
                           <div className="content">
                             <p className="vat EN_trnaslate">
-                              <span>VAT ID :</span> 302008533300003
+                              <span>{t("VAT ID")}:</span> 302008533300003
                             </p>
                             <p className="vat ar_translate hide">
                               <span>الرقم التعريفي لضريبة القيمة المضافة:</span>{" "}
                               302008533300003
                             </p>
                             <p className="vat EN_trnaslate">
-                              <span>CR No. :</span> 1010467934
+                              <span>{t("CR No")}. :</span> 1010467934
                             </p>
                             <p className="vat ar_translate hide">
                               <span>رقم السجل :</span> 1010467934
                             </p>
                             <p className="vat EN_trnaslate">
-                              Blue Path International Trading Co. Branch
+                              {t("Blue Path International Trading Co. Branch")}
                             </p>
                             <p className="vat ar_translate hide">
                               فرع شركة بلوباث للتجارة العالمية
@@ -251,9 +250,9 @@ const Footer = () => {
                 </div>
 
                 <div className="site-footer__newsletter col-md-4 col-lg-4 ">
-                  <h2 className="title_block EN_trnaslate">SIGN UP</h2>
+                  <h2 className="title_block EN_trnaslate">{t("SIGN UP")}</h2>
                   <h2 className="title_block ar_translate hide">اشتراك</h2>
-                  <p className="block-newsletter-label EN_trnaslate">Get access on exclusive offers and promotions and get 10% off your first order!</p>
+                  <p className="block-newsletter-label EN_trnaslate">{t("Get access on exclusive offers and promotions and get 10% off your first order!")}</p>
                   <p className="block-newsletter-label ar_translate hide">احصل على العروض الحصرية والعروض الترويجية واحصل على خصم 10% على طلبك الأول!</p>
            
 
@@ -279,7 +278,7 @@ const Footer = () => {
           aria-expanded={activeAccordion === "account"}
           onClick={() => toggleAccordion("account")}
         >
-          <span className="h3 block-heading EN_trnaslate">Account</span>
+          <span className="h3 block-heading EN_trnaslate">{t("Account")}</span>
           <span className="h3 block-heading ar_translate hide">الحساب</span>
           <span class="navbar-toggler collapse-icons">
           <img src="/assets/images/download (1).png"/>
@@ -294,12 +293,12 @@ const Footer = () => {
             transition: "max-height 0.3s ease-out",
           }}
         >
-          <h2 className="footer-heading hidden-lg-down EN_trnaslate">Account</h2>
+          <h2 className="footer-heading hidden-lg-down EN_trnaslate">{t("Account")}</h2>
           <ul className="site-footer__linklist EN_trnaslate">
-            <li className="site-footer__linklist-item"><a href="/">Login/ Register</a></li>
-            <li className="site-footer__linklist-item"><a href="/">Wishlist</a></li>
-            <li className="site-footer__linklist-item"><a href="/">Delivery Information</a></li>
-            <li className="site-footer__linklist-item"><a href="/">Become an Affiliate</a></li>
+            <li className="site-footer__linklist-item"><a href="/">{t("Login/ Register")}</a></li>
+            <li className="site-footer__linklist-item"><a href="/">{t("Wishlist")}</a></li>
+            <li className="site-footer__linklist-item"><a href="/">{t("Delivery Information")}</a></li>
+            <li className="site-footer__linklist-item"><a href="/">{t("Become an Affiliate")}</a></li>
           </ul>
         </div>
       </div>
@@ -313,7 +312,7 @@ const Footer = () => {
           aria-expanded={activeAccordion === "company"}
           onClick={() => toggleAccordion("company")}
         >
-          <span className="h3 block-heading EN_trnaslate">Company</span>
+          <span className="h3 block-heading EN_trnaslate">{t("Company")}</span>
           <span className="h3 block-heading ar_translate hide">أعلى الفئات</span>
           <span class="navbar-toggler collapse-icons">
 <img src="/assets/images/download (1).png"/>
@@ -328,14 +327,14 @@ const Footer = () => {
             transition: "max-height 0.3s ease-out",
           }}
         >
-          <h2 className="footer-heading hidden-lg-down EN_trnaslate">Company</h2>
+          <h2 className="footer-heading hidden-lg-down EN_trnaslate">{t("Company")}</h2>
           <ul className="site-footer__linklist EN_trnaslate">
-            <li className="site-footer__linklist-item"><a href="/">About Us</a></li>
-            <li className="site-footer__linklist-item"><a href="/">Privacy &amp; Security Policy</a></li>
-            <li className="site-footer__linklist-item"><a href="/">Terms &amp; Conditions</a></li>
-            <li className="site-footer__linklist-item"><a href="/">Our Services</a></li>
-            <li className="site-footer__linklist-item"><a href="/">Consumer Rights</a></li>
-            <li className="site-footer__linklist-item"><a href="/">Party Tips &amp; Ideas</a></li>
+            <li className="site-footer__linklist-item"><a href="/">{t("About Us")}</a></li>
+            <li className="site-footer__linklist-item"><a href="/">{t("Privacy")} &amp; {t("Security Policy")}</a></li>
+            <li className="site-footer__linklist-item"><a href="/">{t("Terms")} &amp; {t("Conditions")}</a></li>
+            <li className="site-footer__linklist-item"><a href="/">{t("Our Services")}</a></li>
+            <li className="site-footer__linklist-item"><a href="/">{t("Consumer Rights")}</a></li>
+            <li className="site-footer__linklist-item"><a href="/">{t("Party Tips")} &amp; {t("Ideas")}</a></li>
           </ul>
         </div>
       </div>
@@ -349,7 +348,7 @@ const Footer = () => {
           aria-expanded={activeAccordion === "categories"}
           onClick={() => toggleAccordion("categories")}
         >
-          <span className="h3 block-heading EN_trnaslate">Top Categories</span>
+          <span className="h3 block-heading EN_trnaslate">{t("Top Categories")}</span>
           <span className="h3 block-heading ar_translate hide">أعلى الفئات</span>
           <span class="navbar-toggler collapse-icons">
           <img src="/assets/images/download (1).png"/>
@@ -364,14 +363,14 @@ const Footer = () => {
             transition: "max-height 0.3s ease-out",
           }}
         >
-          <h2 className="footer-heading hidden-lg-down EN_trnaslate">Top Categories</h2>
+          <h2 className="footer-heading hidden-lg-down EN_trnaslate">{t("Top Categories")}</h2>
           <ul className="site-footer__linklist EN_trnaslate">
-            <li className="site-footer__linklist-item"><a href="/">Christmas Decorations</a></li>
-            <li className="site-footer__linklist-item"><a href="/">New Year Party Decor</a></li>
-            <li className="site-footer__linklist-item"><a href="/">Disney Party Supplies</a></li>
-            <li className="site-footer__linklist-item"><a href="/">Balloon Decorations</a></li>
-            <li className="site-footer__linklist-item"><a href="/">Theme Party Supplies</a></li>
-            <li className="site-footer__linklist-item"><a href="/">Costumes For Everyone</a></li>
+            <li className="site-footer__linklist-item"><a href="/">{t("Christmas Decorations")}</a></li>
+            <li className="site-footer__linklist-item"><a href="/">{t("New Year Party Decor")}</a></li>
+            <li className="site-footer__linklist-item"><a href="/">{t("Disney Party Supplies")}</a></li>
+            <li className="site-footer__linklist-item"><a href="/">{t("Balloon Decorations")}</a></li>
+            <li className="site-footer__linklist-item"><a href="/">{t("Theme Party Supplies")}</a></li>
+            <li className="site-footer__linklist-item"><a href="/">{t("Costumes For Everyone")}</a></li>
           </ul>
         </div>
       </div>
@@ -385,7 +384,7 @@ const Footer = () => {
           aria-expanded={activeAccordion === "customer"}
           onClick={() => toggleAccordion("customer")}
         >
-          <span className="h3 block-heading EN_trnaslate">Customer Care</span>
+          <span className="h3 block-heading EN_trnaslate">{t("Customer Care")}</span>
           <span className="h3 block-heading ar_translate hide">رعاية العميل</span>
           <span class="navbar-toggler collapse-icons">
           <img src="/assets/images/download (1).png"/>
@@ -400,14 +399,14 @@ const Footer = () => {
             transition: "max-height 0.3s ease-out",
           }}
         >
-          <h2 className="footer-heading hidden-lg-down EN_trnaslate">Customer Care</h2>
+          <h2 className="footer-heading hidden-lg-down EN_trnaslate">{t("Customer Care")}</h2>
           <ul className="site-footer__linklist EN_trnaslate">
-            <li className="site-footer__linklist-item"><a href="/">Brands</a></li>
-            <li className="site-footer__linklist-item"><a href="/">Store Locations</a></li>
-            <li className="site-footer__linklist-item"><a href="/">Safety &amp; Quality</a></li>
-            <li className="site-footer__linklist-item"><a href="/">Size Guide</a></li>
-            <li className="site-footer__linklist-item"><a href="/">Share Feedback</a></li>
-            <li className="site-footer__linklist-item"><a href="/">Event Central</a></li>
+            <li className="site-footer__linklist-item"><a href="/">{t("Brands")}</a></li>
+            <li className="site-footer__linklist-item"><a href="/">{t("Store Locations")}</a></li>
+            <li className="site-footer__linklist-item"><a href="/">{t("Safety")} &amp; {t("Quality")}</a></li>
+            <li className="site-footer__linklist-item"><a href="/">{t("Size Guide")}</a></li>
+            <li className="site-footer__linklist-item"><a href="/">{t("Share Feedback")}</a></li>
+            <li className="site-footer__linklist-item"><a href="/">{t("Event Central")}</a></li>
           </ul>
         </div>
       </div>
@@ -419,121 +418,78 @@ const Footer = () => {
 
       <div class="footer-all-con">
         <div class="new-sec-heading-footer page-width">
-          <h2 id="footer-sec-heading">Popular Searches</h2>
+          <h2 id="footer-sec-heading">{t("Popular Searches")}</h2>
           <div class="btn-group-footer">
             <a href="/">
-              <button>New Year Decorations</button>
+              <button>{t("New Year Decorations")}</button>
             </a>
             <a href="/">
-              <button>New Year Party Kits</button>
+              <button>{t("New Year Party Kits")}</button>
             </a>
             <a href="/">
-              <button>New Year Party Decor</button>
+              <button>{t("New Year Party Decor")}</button>
             </a>
             <a href="/">
-              <button>New Year Balloons</button>
+              <button>{t("New Year Balloons")}</button>
             </a>
             <a href="/">
-              <button>New Year Tableware</button>
-            </a>
-            <a href="/">
-              <button>Christmas Decorations</button>
-            </a>
-            <a href="/">
-              <button>Christmas Tableware</button>
-            </a>
-            <a href="/">
-              <button>Christmas Costumes</button>
-            </a>
-            <a href="/">
-              <button>Christmas Stockings</button>
-            </a>
-            <a href="/">
-              <button>Christmas Balloons</button>
-            </a>
-            <a href="/">
-              <button>Christmas Party Supplies</button>
-            </a>
-
-            <a href="/">
-              {" "}
-              <button>Birthday Balloons</button>
+              <button>{t("New Year Tableware")}</button>
             </a>
             <a href="/">
               {" "}
-              <button>Disney Golden Princess</button>
+              <button>{t("Birthday Balloons")}</button>
             </a>
             <a href="/">
               {" "}
-              <button>Princess Belle</button>
+              <button>{t("Disney Golden Princess")}</button>
             </a>
             <a href="/">
               {" "}
-              <button>Princess Cinderella</button>
+              <button>{t("Princess Belle")}</button>
             </a>
             <a href="/">
               {" "}
-              <button>Princess Jasmine</button>
+              <button>{t("Princess Cinderella")}</button>
             </a>
             <a href="/">
               {" "}
-              <button>Princess Ariel</button>
+              <button>{t("Princess Jasmine")}</button>
             </a>
             <a href="/">
               {" "}
-              <button>Princess Aurora</button>
+              <button>{t("Princess Ariel")}</button>
             </a>
             <a href="/">
               {" "}
-              <button>Marvel party supplies</button>
+              <button>{t("Princess Aurora")}</button>
             </a>
             <a href="/">
               {" "}
-              <button>Disney Decorations</button>
+              <button>{t("Marvel party supplies")}</button>
             </a>
             <a href="/">
               {" "}
-              <button>Spiderman Decorations</button>
+              <button>{t("Disney Decorations")}</button>
             </a>
             <a href="/">
               {" "}
-              <button>Marvel Costumes</button>
+              <button>{t("Spiderman Decorations")}</button>
             </a>
             <a href="/">
               {" "}
-              <button>Disney Costumes</button>
+              <button>{t("Marvel Costumes")}</button>
             </a>
             <a href="/">
               {" "}
-              <button>Avengers Decorations</button>
+              <button>{t("Avengers Decorations")}</button>
             </a>
             <a href="/">
               {" "}
-              <button>Birthday Decorations</button>
+              <button>{t("Baby Costumes")}</button>
             </a>
             <a href="/">
               {" "}
-              <button>Girls Costumes</button>
-            </a>
-            <a href="/">
-              {" "}
-              <button>Boys Costumes</button>
-            </a>
-            <a href="/">
-              {" "}
-              <button>Women Costumes</button>
-            </a>
-            <a href="/">
-              {" "}
-              <button>Party Costumes</button>
-            </a>
-            <a href="/">
-              {" "}
-              <button>Baby Costumes</button>
-            </a>
-            <a href="/">
-              {" "}
-              <button id="dynamic-btn">Superhero Costumes</button>
+              <button id="dynamic-btn">{t("Superhero Costumes")}</button>
             </a>
           </div>
         </div>

@@ -1,7 +1,8 @@
 import React, { useState, useEffect, useRef } from 'react';
 import "../css/coupons-you.css"; 
-
+import { useTranslation } from "react-i18next";
 const CouponPopup = () => {
+  const {t} = useTranslation();   
   const [isOpen, setIsOpen] = useState(false);
   const popupRef = useRef(null); // Create a ref for the popup
 
@@ -30,9 +31,9 @@ const CouponPopup = () => {
   return (
     <div className="coupons-you">
       <div className="coupons-txt">
-        <h3>Available Offers</h3>
+        <h3>{t("Available Offers")}</h3>
         <p>
-          10% Off on Your First Purchase{" "}
+          {t("10% Off on Your First Purchase")}{" "}
           <a
             className="active__offers"
             href="#"
@@ -41,7 +42,7 @@ const CouponPopup = () => {
               togglePopup();
             }}
           >
-            Know More
+            {t("Know More")}
           </a>
         </p>
       </div>

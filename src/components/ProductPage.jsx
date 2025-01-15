@@ -205,8 +205,6 @@ const ProductPage = () => {
 
       </div>
 
-      {/* Pdp_tabs */}
-      <Pdp_tabs />
     </div>
   ) : (
     <div className="not-found-message">{t("SKU not found")}</div>

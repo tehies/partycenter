@@ -16,6 +16,18 @@ const languages = [
 
     
 const Header = () => {
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false); // Sidebar state
+  const toggleSidebar = () => {
+    setIsSidebarOpen(!isSidebarOpen); // Toggle sidebar visibility
+};
+if (!isSidebarOpen) {
+       
+  // Remove ClassName from body when closing the sidebar
+   document.body.classList.remove("bodyfixed");
+} else {
+   // Add ClassName to body when opening the sidebar
+   document.body.classList.add("bodyfixed");
+} 
   const {t} = useTranslation();
   const { i18n } = useTranslation();
    
@@ -254,6 +266,67 @@ const Header = () => {
 
 
                     </div>
+
+
+                    <div className={`sidebar ${isSidebarOpen ? "open" : ""}`}>
+                <div className="sidebar-header">
+                    {/* Close Icon */}
+                    <img
+                        src="/close.png"
+                        alt="Close"
+                        className="close-icon"
+                        onClick={toggleSidebar}
+                    />
+                </div>
+                <nav className="sidebar-nav">
+                    <Link to="/" className="nav-item">Disney Golden Princess</Link>
+                    <Link to="/" className="nav-item">Birthdays</Link>
+                    <Link to="/" className="nav-item">Balloons</Link>
+                    <Link to="/" className="nav-item">Costumes</Link>
+                    <Link to="/" className="nav-item">Decorations</Link>
+                    <Link to="/" className="nav-item">Party Favours</Link>
+                    <Link to="/" className="nav-item">Theme Parties</Link>
+                    <Link to="/" className="nav-item">Baby Events</Link>
+                    <Link to="/" className="nav-item">Special Occasions</Link>
+                    <Link to="/" className="nav-item">Holiday Seasons</Link>
+
+    
+                    
+                </nav>
+ 
+                <div className="userinfo-inner">
+                <ul className="header-bar__module header-bar__module--list">
+                  
+                  
+                  <li className="log-in">
+                    <a href="/" id="customer_login_link">Log in</a>
+                  </li>
+                  <li className="create_account">
+                    <a href="/" id="customer_register_link">Signup</a>
+                  </li>
+                  
+                  
+                  <li className="wishlist">
+                    
+                    <a href="/">Wishlist 
+                    </a>
+                      
+                  </li>
+                  <li>
+                    
+                    <a href="/">Store Locations</a>
+                      
+                  </li>
+                 
+                </ul>
+              </div>
+
+
+
+            </div>
+
+
+
                   </div>
                 </div>
               </div>
@@ -262,7 +335,7 @@ const Header = () => {
                 <div className="page-width">
                   <div className="row">
                     <div className="mobile-width-left">
-                      <div id="menu-icon" className="menu-icon hidden-lg-up">
+                      <div id="menu-icon" className="menu-icon hidden-lg-up" onClick={toggleSidebar}>
                         <img src="/assets/header-icons/hamburger.png" />
                       </div>
                       <img
