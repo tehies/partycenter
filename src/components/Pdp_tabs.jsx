@@ -27,7 +27,7 @@ export default function Pdp_tabs() {
         
         <div className="pdp-tabs-container" >
           <div className="pdp-tabs-buttons">
-            {['Description', 'Ratings', 'Shipping & Returns'].map((label, i) => (
+            {[t('Description'), t('Ratings'), t('Shipping & Returns')].map((label, i) => (
               <button key={i} className={activeTab === i ? 'active' : ''} onClick={() => setActiveTab(i)}>{label}</button>
             ))}
           </div>
