@@ -186,7 +186,7 @@ const ProductPage = () => {
 
         {/* Recommended Products */}
         <div className="recommended-products">
-          <h2>Recommended Products</h2>
+          <h2>{t("Recommended Products")}</h2>
           <div className="recommended-products-grid">
             {recommendations.map((recommendation) => (
               <div key={recommendation.productId} className="recommended-product">
@@ -205,7 +205,8 @@ const ProductPage = () => {
 
       </div>
 
-     
+      {/* Pdp_tabs */}
+      <Pdp_tabs />
     </div>
   ) : (
     <div className="not-found-message">{t("SKU not found")}</div>

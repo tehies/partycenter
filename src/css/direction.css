@@ -70,3 +70,11 @@ body[dir="rtl"] .product-container.grid {
         margin-right: 0px;
     }
 }
+
+body[dir="rtl"] .product-card.list .product-info h3 {
+    width: 100%;
+    white-space: normal;
+    overflow: inherit;
+    text-overflow: inherit;
+    text-align: left;
+}

@@ -216,17 +216,13 @@ const CollectionNav = ({ id }) => {
           <p>There are {Prtoductlength} products</p>
         </div>
         <div className="sorting-controls">
-          <label htmlFor="sortOrder">Sort By:</label>
-          <select
-            id="sortOrder"
-            value={sortOrder}
-            onChange={handleFilterChange}
-          >
-            <option value="">Default</option>
-            <option value="lowToHigh">Price: Low to High</option>
-            <option value="highToLow">Price: High to Low</option>
-            <option value="aToZ">Name: A to Z</option>
-            <option value="zToA">Name: Z to A</option>
+        <label htmlFor="sortOrder">{t("Sort By:")}</label>
+                    <select id="sortOrder" value={sortOrder} onChange={handleFilterChange}>
+                        <option value="">{t("Default")}</option>
+                        <option value="lowToHigh">{t("Price: Low to High")}</option>
+                        <option value="highToLow">{t("Price: High to Low")}</option>
+                        <option value="aToZ">{t("Name: A to Z")}</option>
+                        <option value="zToA">{t("Name: Z to A")}</option>
           </select>
         </div>
 

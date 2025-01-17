@@ -19,7 +19,7 @@ const Cart = () => {
     const dispatch = useDispatch();
     const { t, i18n } = useTranslation();
     useEffect(() => {
-        const fetchCartDetails = async () => {
+        const fetchCartDetails = async () => {  
             const storedOrderFormId = localStorage.getItem('orderFormId');
             if (!storedOrderFormId) return;
 
@@ -32,17 +32,37 @@ const Cart = () => {
 
                 const productSpecifications = Array.isArray(data?.productDetails) ? data.productDetails : [];
 
+                // const updatedItems = data?.items?.map(item => {
+                //     const skuSpecifications = productSpecifications
+                //         .find(spec => spec?.skuDetails?.ProductSpecifications)
+                //         ?.skuDetails?.ProductSpecifications || [];   
+
+                //     const arabicTitle = skuSpecifications
+                //         .flat()
+                //         .find(spec => spec?.FieldName === 'Arabic title')?.FieldValues?.[0] || 'N/A';
+                //         console.log(`Item ID: ${item.id}, Arabic Title: ${arabicTitle}`);
+                //     return { ...item, arabicTitle };
+                    
+                 
+                // }) || [];
                 const updatedItems = data?.items?.map(item => {
+                    // Match the SKU specifications specific to the current item
                     const skuSpecifications = productSpecifications
-                        .find(spec => spec?.skuDetails?.ProductSpecifications)
+                        .find(spec => spec?.skuDetails?.ProductSpecifications && spec.id === item.id)
                         ?.skuDetails?.ProductSpecifications || [];
-
-                    const arabicTitle = skuSpecifications
-                        .flat()
-                        .find(spec => spec?.FieldName === 'Arabic title')?.FieldValues?.[0] || 'N/A';
-
-                    return { ...item, arabicTitle };
+                
+                    // Extract all Arabic titles for the current item's specifications
+                    const arabicTitles = skuSpecifications
+                        .filter(spec => spec?.FieldName === 'Arabic title') // Filter all specs with 'Arabic title'
+                        .map(spec => spec?.FieldValues?.[0] || 'N/A'); // Extract their FieldValues[0]
+                
+                    console.log(`Item ID: ${item.id}, Arabic Titles: ${arabicTitles}`);
+                
+                    return { ...item, arabicTitles }; // Attach titles array to the item
                 }) || [];
+                
+                
+                
                 console.log(updatedItems);
                 dispatch(setOrderForm({ ...data, items: updatedItems }));
             }
@@ -102,7 +122,9 @@ const Cart = () => {
                                     />
                                 </td>
                                 <td>
-                                    {item.name || 'Product Name Not Available'}
+                                {i18n.language === "ar"
+        ? (item.arabicTitles || t("Arabic Title Not Available"))
+        : (item.name || t("Product Name Not Available"))}
                                 </td>
 
                                 <td className='Quantity-btn'>

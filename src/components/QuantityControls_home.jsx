@@ -2,8 +2,9 @@ import React, { useState } from 'react';
 import '../css/QuantityControls_home.css'
 import axios from 'axios';
 import { NavLink, useParams, useNavigate } from 'react-router-dom';
-
+import { useTranslation } from "react-i18next";
 const QuantityControls_home = ({ id }) => {
+      const {t} = useTranslation();
     const [quantity, setQuantity] = useState(1);
     const navigate = useNavigate();
     const [sku, setSku] = useState(null);
@@ -82,7 +83,7 @@ const QuantityControls_home = ({ id }) => {
                 </button>
             </div>
             <button className="add-to-cart-btn" onClick={handleAddToCart}>
-                + ADD TO CART
+                +{t("ADD TO CART")}
             </button>
 
         </div>

@@ -228,8 +228,9 @@
 
 import React, { useEffect, useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
-import axios from 'axios';
 import QuantityControls_home from "./QuantityControls_home";
+import axios from 'axios';
+// import QuantityControls_home from "./QuantityControls_home";
 import '../css/CollectionPage.css';
 import { useTranslation } from "react-i18next";
 export default function CollectionPage({ id }) {
@@ -350,16 +351,16 @@ export default function CollectionPage({ id }) {
 
                         </button>
                     </div>
-                    <p>There are {products.length} products</p>
+                    <p>{t("There are")} {Prtoductlength} {t("Products")}</p>
                 </div>
                 <div className="sorting-controls">
-                    <label htmlFor="sortOrder">Sort By:</label>
+                    <label htmlFor="sortOrder">{t("Sort By:")}</label>
                     <select id="sortOrder" value={sortOrder} onChange={handleFilterChange}>
-                        <option value="">Default</option>
-                        <option value="lowToHigh">Price: Low to High</option>
-                        <option value="highToLow">Price: High to Low</option>
-                        <option value="aToZ">Name: A to Z</option>
-                        <option value="zToA">Name: Z to A</option>
+                        <option value="">{t("Default")}</option>
+                        <option value="lowToHigh">{t("Price: Low to High")}</option>
+                        <option value="highToLow">{t("Price: High to Low")}</option>
+                        <option value="aToZ">{t("Name: A to Z")}</option>
+                        <option value="zToA">{t("Name: Z to A")}</option>
                     </select>
                 </div>
 
@@ -397,7 +398,7 @@ export default function CollectionPage({ id }) {
                             </div>
                         </div>
                     ))}
-                </div>
+                </div>   
             )}
         </div>
     );
