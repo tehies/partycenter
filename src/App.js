@@ -1,3 +1,5 @@
+import React, { useEffect } from 'react';
+import { BrowserRouter as Router, Route, Routes, useLocation } from 'react-router-dom';
 import './App.css';
 import './css/global.css';
 import BannerSlider from './components/BannerSlider';
@@ -12,13 +14,24 @@ import ProductSlider from './components/ProductSlider';
 import CollectionPage from './components/CollectionPage'; // Component for collection API integration
 import ProductPage from './components/ProductPage'; // Component for Product API integration
 import Cart from './components/Cart';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import CollectionNav from './components/CollectionNav';
 import '../src/css/direction.css'
+
+
+function ScrollToTop() {
+  const { pathname } = useLocation();
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
+
+  return null;
+}
 
 function App() {
   return (
     <Router>
+      <ScrollToTop/>
       <div>
         <Header />
         <Routes>

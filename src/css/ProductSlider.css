@@ -115,7 +115,13 @@
 .product-price {
     font-size: 13px;
     font-weight: 400;
+}
 
+.product-card.list .product-info h3 {
+    width: 100%;
+    white-space: normal;
+    overflow: inherit;
+    text-overflow: inherit;
 }
 
 @media (max-width: 768px) {

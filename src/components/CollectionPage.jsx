@@ -229,6 +229,7 @@
 import React, { useEffect, useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import axios from 'axios';
+import QuantityControls_home from "./QuantityControls_home";
 import '../css/CollectionPage.css';
 import { useTranslation } from "react-i18next";
 export default function CollectionPage({ id }) {
@@ -265,7 +266,9 @@ export default function CollectionPage({ id }) {
                 );
     
                 const products = productResponse.data?.Products || [];
-                const productSize = productResponse.data?.Size || 0;
+                console.log(products)
+                const productSize = setProductLength(productResponse.data.Size);
+                
     
                 // Process product data to include Arabic title
                 const processedProducts = products.map((product) => {
@@ -273,7 +276,7 @@ export default function CollectionPage({ id }) {
                         (spec) => spec.FieldName === "Arabic title"
                     )?.FieldValues?.[0];
     
-                    console.log(`Arabic Title for Product ${product.ProductId}:`, arabicTitle);
+                    // console.log(`Arabic Title for Product ${product.ProductId}:`, arabicTitle);
     
                     return {
                         ...product,
@@ -283,6 +286,7 @@ export default function CollectionPage({ id }) {
     
                 // Update state with processed data
                 setProducts(products);
+                console.log(products.length)
                 setFilteredProducts(processedProducts);
                 setProductLength(productSize);
     
@@ -328,7 +332,7 @@ export default function CollectionPage({ id }) {
 
     return (
         <div className="collection-container">
-            <h2>{collectionName}</h2>
+            <h1 className='product-heading'>{collectionName}</h1>
 
             <div className="srtngprdts">
                 <div className="noprtds">
@@ -346,7 +350,7 @@ export default function CollectionPage({ id }) {
 
                         </button>
                     </div>
-                    <p>There are {Prtoductlength} products</p>
+                    <p>There are {products.length} products</p>
                 </div>
                 <div className="sorting-controls">
                     <label htmlFor="sortOrder">Sort By:</label>
@@ -368,13 +372,13 @@ export default function CollectionPage({ id }) {
                     <div className="spinner"></div>
                 </div>
             ) : (
-                <div className={`product-container ${viewType}`}>
+                <div className={`col-nav product-grid ${viewType}`}>
                     {filteredProducts.map((product) => (
                         <div key={product.SkuId} className={`product-card ${viewType}`}>
-                            <Link to={`/product/${product.SkuId}`}>
+                            <Link className="product-card-link" to={`/product/${product.SkuId}`}>
                                 <img src={product.SkuImageUrl} alt={product.ProductName} />
                             </Link>
-                            <div className="namebtnnn">
+                            <div className="namebtnnn nav-data">
                                 <div className="product-info">
                                     <h3> { i18n.language === "ar"
                   ? product.arabicTitle
@@ -388,27 +392,8 @@ export default function CollectionPage({ id }) {
                                     </p>
 
                                 </div>
-                                <div className="main-product-container">
-                                    <div className="quantity-controls">
-                                        <button className="decrease-btn" onClick={handleDecrease}>
-                                            -
-                                        </button>
-                                        <input
-                                            type="number"
-                                            className="quantity-input"
-                                            value={quantity}
-                                            min="1"
-                                            readOnly
-                                        />
-                                        <button className="increase-btn" onClick={handleIncrease}>
-                                            +
-                                        </button>
-                                    </div>
-                                    <button className="add-to-cart-btn" onClick={handleAddToCart}>
-                                        + ADD TO CART
-                                    </button>
-                                    {/* <p className="sku">SKU: 3008599</p> */}
-                                </div>
+                                <p className='product-descrition'>{product.SkuDetails.ProductDescription}</p>
+                                <QuantityControls_home id={product.SkuId} />
                             </div>
                         </div>
                     ))}

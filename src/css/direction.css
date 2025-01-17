@@ -58,4 +58,15 @@ body[dir="rtl"] .product-container.grid {
         display: flex;
         column-gap: 24px;
     }
+
     } 
+    @media only screen and ( max-width :600px ){
+    body[dir="rtl"] .col-nav.product-grid.list .product-card.list img {
+        width: 70%;
+        height: auto;
+        margin-left: 0px;
+    }
+    .col-nav.product-grid.list .product-card.list img{
+        margin-right: 0px;
+    }
+}
