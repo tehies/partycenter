@@ -95,20 +95,30 @@ const CollectionNav = ({ id }) => {
         // Process products if the response data contains an array of products
         if (response.data?.Products && Array.isArray(response.data.Products)) {
           const processedProducts = response.data.Products.map((product) => {
-            const arabicTitle =
-              product?.SkuDetails?.ProductSpecifications?.find(
-                (spec) => spec.FieldName === "Arabic title"
-              )?.FieldValues?.[0];
-
+            const arabicTitle = product?.SkuDetails?.ProductSpecifications?.find(
+              (spec) => spec.FieldName === "Arabic title"
+            )?.FieldValues?.[0];
+            
             console.log(
-              `Arabic Title for Product ${product.ProductId}:`,
+              `Arabic Title for Product ${product?.ProductId || "Unknown"}:`,
               arabicTitle
             );
-
+            
+            const arabicDescription = product?.SkuDetails?.ProductSpecifications?.find(
+              (spec) => spec.FieldName === "Arabic description"
+            )?.FieldValues?.[0];
+            
+            console.log(
+              `Arabic Description for Product ${product?.ProductId || "Unknown"}:`,
+              arabicDescription
+            );
+            
             return {
               ...product,
               arabicTitle: arabicTitle || t("No Arabic Title Available"),
+              arabicDescription: arabicDescription || t("No Arabic Description Available"),
             };
+            
           });
 
           setFilteredProducts(processedProducts);
@@ -194,7 +204,7 @@ const CollectionNav = ({ id }) => {
 
   return (
     <div className="collection-product-container">
-      <h1 className="product-heading">Collection Products</h1>
+      <h1 className="product-heading">{t("Collection Products")}</h1>
 
       {/* Sorting Controls */}
       <div className="srtngprdts">
@@ -213,7 +223,7 @@ const CollectionNav = ({ id }) => {
               onClick={() => setViewType("list")}
             ></button>
           </div>
-          <p>There are {Prtoductlength} products</p>
+          <p>{t("There are")} {Prtoductlength} {t("products")}</p>
         </div>
         <div className="sorting-controls">
         <label htmlFor="sortOrder">{t("Sort By:")}</label>
@@ -257,7 +267,13 @@ const CollectionNav = ({ id }) => {
                   ? `$${(product.Price / 100).toFixed(2)}`
                   : "Price not available"}
               </p>
-              <p className='product-descrition'>{product.SkuDetails.ProductDescription}</p>
+              <p className='product-descrition'>
+                {/* {product.SkuDetails.ProductDescription} */}
+                {i18n.language === "ar"
+                  ? product.arabicDescription
+                  : product.SkuDetails.ProductDescription|| t("Product Name Not Available")}
+                
+                </p>
               <QuantityControls_home id={product.SkuId} />
               </div>
             </div>

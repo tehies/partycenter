@@ -1,14 +1,14 @@
 import React, { useState, useEffect, useRef } from "react";
 import "../css/HeaderSearch.css";
 import { useNavigate } from "react-router-dom";
-
+import { useTranslation } from "react-i18next";
 const HeaderSearch = () => {
     const [query, setQuery] = useState("");
     const [products, setProducts] = useState([]);
     const [isOpen, setIsOpen] = useState(false);
     const navigate = useNavigate();
     const searchContainerRef = useRef(null);
-
+  const { t, i18n } = useTranslation();
     const handleSearchChange = async (event) => {
         const newQuery = event.target.value;
         setQuery(newQuery);
@@ -71,7 +71,7 @@ const HeaderSearch = () => {
                         type="text"
                         name="q"
                         className="search-input search-header__input search__input"
-                        placeholder="Search for products..."
+                        placeholder={t("Search for products")}
                         value={query}
                         onChange={handleSearchChange}
                         onFocus={() => setIsOpen(true)} // Open the modal on input focus

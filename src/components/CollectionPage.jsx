@@ -272,19 +272,42 @@ export default function CollectionPage({ id }) {
                 
     
                 // Process product data to include Arabic title
+                // const processedProducts = products.map((product) => {
+                //     const arabicTitle = product?.SkuDetails?.ProductSpecifications?.find(
+                //         (spec) => spec.FieldName === "Arabic title"
+                //     )?.FieldValues?.[0];
+    
+
+                //     const arabicdiscription = product?.SkuDetails?.ProductSpecifications?.find(
+                //         (spec) => spec.FieldName === "Arabic description"
+                //     )?.FieldValues?.[0];
+
+                //     // console.log(`Arabic Title for Product ${product.ProductId}:`, arabicTitle);
+    
+                //     return {
+                //         ...product,
+                //         arabicTitle: arabicTitle || t("No Arabic Title Available"),
+                //     };
+                // });
                 const processedProducts = products.map((product) => {
+                    // Extract Arabic title
                     const arabicTitle = product?.SkuDetails?.ProductSpecifications?.find(
                         (spec) => spec.FieldName === "Arabic title"
-                    )?.FieldValues?.[0];
-    
-                    // console.log(`Arabic Title for Product ${product.ProductId}:`, arabicTitle);
-    
+                    )?.FieldValues?.[0] || t("No Arabic Title Available");
+                
+                    // Extract Arabic description
+                    const arabicDescription = product?.SkuDetails?.ProductSpecifications?.find(
+                        (spec) => spec.FieldName === "Arabic description"
+                    )?.FieldValues?.[0] || t("No Arabic Description Available");
+                
+                    // Attach the extracted values to the product
                     return {
                         ...product,
-                        arabicTitle: arabicTitle || t("No Arabic Title Available"),
+                        arabicTitle,
+                        arabicDescription,
                     };
                 });
-    
+                
                 // Update state with processed data
                 setProducts(products);
                 console.log(products.length)
@@ -393,7 +416,15 @@ export default function CollectionPage({ id }) {
                                     </p>
 
                                 </div>
-                                <p className='product-descrition'>{product.SkuDetails.ProductDescription}</p>
+                                <p className='product-descrition'>
+                                    {/* {product.SkuDetails.ProductDescription} */}
+
+                                { i18n.language === "ar"
+                  ? product.arabicDescription
+                  : product.SkuDetails.ProductDescription || t("Product Name Not Available")}
+
+
+                                </p>
                                 <QuantityControls_home id={product.SkuId} />
                             </div>
                         </div>
